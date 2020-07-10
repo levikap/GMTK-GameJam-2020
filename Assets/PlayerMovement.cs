@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
     public float jumpForce;
     public float speed;
+    public float runSpeed;
     Rigidbody2D rb;
 
     bool isGrounded = false;
@@ -27,7 +28,7 @@ public class PlayerMovement : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    { 
+    {
         transform.rotation = new Quaternion(0, 0, 0, 0);
         Move();
         Jump();
@@ -46,8 +47,16 @@ public class PlayerMovement : MonoBehaviour
     void Move()
     {
         float x = Input.GetAxisRaw("Horizontal");
-        float moveBy = x * speed;
-        rb.velocity = new Vector2(moveBy, rb.velocity.y);
+        if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift))
+        {
+            float moveBy = x * runSpeed;
+            rb.velocity = new Vector2(moveBy, rb.velocity.y);
+        } else
+        {
+            float moveBy = x * speed;
+            rb.velocity = new Vector2(moveBy, rb.velocity.y);
+        }
+
     }
 
     void CheckIfGrounded()
