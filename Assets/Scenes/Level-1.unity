@@ -317,12 +317,12 @@ PrefabInstance:
         type: 3}
       propertyPath: dreamObjects
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 900490504}
     - target: {fileID: 1295614856013350675, guid: 191a5571f32c84244bf409ca637f9bfe,
         type: 3}
       propertyPath: awakeObjects
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2045043256}
     - target: {fileID: 1295614856013350675, guid: 191a5571f32c84244bf409ca637f9bfe,
         type: 3}
       propertyPath: player
@@ -346,9 +346,11 @@ GameObject:
   - component: {fileID: 622819485}
   - component: {fileID: 622819487}
   - component: {fileID: 622819486}
+  - component: {fileID: 622819488}
+  - component: {fileID: 622819489}
   m_Layer: 0
   m_Name: Tilemap
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -452,6 +454,35 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &622819488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 622819484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4430c6d40d16f418a81c3af65e2f51ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isHittingWall: 0
+--- !u!19719996 &622819489
+TilemapCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 622819484}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_MaximumTileChangeCount: 1000
+  m_ExtrusionFactor: 0.00001
 --- !u!1001 &779193523
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1656,7 +1687,7 @@ GameObject:
   - component: {fileID: 1103053169}
   m_Layer: 0
   m_Name: dreamGrid
-  m_TagString: Ground
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
