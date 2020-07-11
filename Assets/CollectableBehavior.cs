@@ -23,7 +23,7 @@ public class CollectableBehavior : MonoBehaviour
             //var cameraPosition = GameObject.FindGameObjectWithTag("MainCamera").transform.position;
 
             //AudioSource.PlayClipAtPoint(pickupSFX, cameraPosition);
-            print("hit");
+            print("hitPlayer");
             Destroy(gameObject);
         }
     }
