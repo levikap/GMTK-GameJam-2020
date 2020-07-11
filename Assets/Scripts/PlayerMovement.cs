@@ -63,18 +63,20 @@ public class PlayerMovement : MonoBehaviour
     {
         if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow)||  Input.GetKeyDown(KeyCode.W)) && (isGrounded || Time.time - lastTimeGrounded <= rememberGroundedFor))
         {
+            animator.SetBool("Jumping", false);
+            animator.SetBool("isFalling", false);
+            animator.SetBool("isGrounded", false);
             animator.SetBool("pressedJump", true);
             isGrounded = false;
-            animator.SetBool("isGrounded", false);
             Invoke("JumpEffect", 0.05f);
         }
     }
 
     void JumpEffect()
     {
-        animator.SetBool("Jumping", true);
         animator.SetBool("pressedJump", false);
         animator.SetBool("isGrounded", false);
+        animator.SetBool("Jumping", true);
         rb.velocity = new Vector2(rb.velocity.x, jumpForce);
     }
 
@@ -90,20 +92,19 @@ public class PlayerMovement : MonoBehaviour
         } else if (travel < 0.0 && !isGrounded)
         {
             animator.SetBool("isGrounded", false);
-            animator.SetBool("isFalling", true);
             animator.SetBool("Jumping", false);
+            animator.SetBool("isFalling", true);
         }
         previousheight = currentheight;
     }
 
     void Move()
     {
-        print(isHittingWall);
+        float x = Input.GetAxisRaw("Horizontal");
+
+        float moveBy = x * speed;
         if (!isHittingWall)
         {
-            float x = Input.GetAxisRaw("Horizontal");
-
-            float moveBy = x * speed;
             rb.velocity = new Vector2(moveBy, rb.velocity.y);
             animator.SetFloat("Speed", Mathf.Abs(moveBy));
 
@@ -117,6 +118,20 @@ public class PlayerMovement : MonoBehaviour
             {
                 Flip();
             }
+        } else if (facingRight && x < 0)
+        {
+            rb.velocity = new Vector2(moveBy, rb.velocity.y);
+            animator.SetFloat("Speed", Mathf.Abs(moveBy));
+
+            lastMovement = x;
+            Flip();
+        } else if (!facingRight && x > 0)
+        {
+            rb.velocity = new Vector2(moveBy, rb.velocity.y);
+            animator.SetFloat("Speed", Mathf.Abs(moveBy));
+
+            lastMovement = x;
+            Flip();
         }
     }
 
@@ -159,7 +174,7 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.velocity += Vector2.up * Physics2D.gravity * (fallMultiplier - 1) * Time.deltaTime;
         }
-        else if (rb.velocity.y > 0 && !Input.GetKey(KeyCode.Space))
+        else if (rb.velocity.y > 0 && (!Input.GetKey(KeyCode.Space) || !Input.GetKeyDown(KeyCode.UpArrow) || !Input.GetKeyDown(KeyCode.W)))
         {
             rb.velocity += Vector2.up * Physics2D.gravity * (lowJumpMultiplier - 1) * Time.deltaTime;
         }
