@@ -917,7 +917,7 @@ GameObject:
   - component: {fileID: 1011974358}
   - component: {fileID: 1011974357}
   m_Layer: 0
-  m_Name: Vegetable1
+  m_Name: Vegetable
   m_TagString: EnemyVegetable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1134,8 +1134,9 @@ GameObject:
   - component: {fileID: 1106944083}
   - component: {fileID: 1106944082}
   - component: {fileID: 1106944081}
+  - component: {fileID: 1106944084}
   m_Layer: 0
-  m_Name: Cookie1
+  m_Name: Cookie
   m_TagString: CollectableCookie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1149,7 +1150,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1106944079}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -12.81, y: -0.1, z: -28.715223}
+  m_LocalPosition: {x: -12.81, y: -0.1, z: -33.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2073552240}
@@ -1234,6 +1235,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &1106944084
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1106944079}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: fc8f002b9237d435ba41e199ee145249, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1153347280
 GameObject:
   m_ObjectHideFlags: 0
