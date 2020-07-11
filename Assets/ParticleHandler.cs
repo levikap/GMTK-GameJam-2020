@@ -5,31 +5,29 @@ using UnityEngine;
 public class ParticleHandler : MonoBehaviour
 {
     public static float time = 0.0f;
-    public ParticleSystem glow;
+    private GameObject glow;
 
     // Start is called before the first frame update
     void Start()
     {
-        glow = GetComponent<ParticleSystem>();
-        
         
     }
 
     // Update is called once per frame
     void Update()
     {
-        glow.Play();
+       // CheckIfAboutToSwitch();
     }
 
 
-    private void CheckIfAboutToSwitch()
-    {
-        if (SwitchController.playParticles)
-        {
-            glow.Play();
-        } else
-        {
-            glow.Stop();
-        }
-    }
+    //private void CheckIfAboutToSwitch()
+    //{
+    //    if (SwitchController)
+    //    {
+    //        glow.SetActive(true);  
+    //    } else
+    //    {
+    //        glow.SetActive(false);
+    //    }
+    //}
 }

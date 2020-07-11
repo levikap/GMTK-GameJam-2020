@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2592114309768829332}
   - component: {fileID: 2592114309768829335}
   - component: {fileID: 1150356449}
+  - component: {fileID: 5408214296161031880}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -146,7 +147,7 @@ BoxCollider2D:
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_UsedByEffector: 0
+  m_UsedByEffector: 1
   m_UsedByComposite: 0
   m_Offset: {x: -0.21059418, y: 0.19859195}
   m_SpriteTilingProperty:
@@ -180,6 +181,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &5408214296161031880
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2592114309768829339}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16c421acb9de3420a92a84767728c26f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2592114310159884616
 GameObject:
   m_ObjectHideFlags: 0
@@ -277,6 +290,11 @@ PrefabInstance:
     - target: {fileID: 1285118734034872056, guid: 1ffe261b3ccf744b69026540186be048,
         type: 3}
       propertyPath: m_Name
+      value: Glow
+      objectReference: {fileID: 0}
+    - target: {fileID: 1285118734034872056, guid: 1ffe261b3ccf744b69026540186be048,
+        type: 3}
+      propertyPath: m_TagString
       value: Glow
       objectReference: {fileID: 0}
     - target: {fileID: 1285118734034872061, guid: 1ffe261b3ccf744b69026540186be048,
