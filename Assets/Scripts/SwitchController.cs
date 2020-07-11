@@ -15,7 +15,7 @@ public class SwitchController : MonoBehaviour
 
     public float time = 0.0f;
     public float waitTime = 1.0f;
-    public float randomTimeInterval = 10f;
+    public static float randomTimeInterval = 10f;
     public bool glowState = false;
 
     // Start is called before the first frame update
@@ -34,20 +34,24 @@ public class SwitchController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (time >= randomTimeInterval)
-            {
-                glow.SetActive(true);
-                Invoke("Swap", 1);
-                time = 0;
-                randomTimeInterval = CalculateRandomTime();
-         }
-
-        time += UnityEngine.Time.deltaTime;
+        SwapEveryTime();
        
     }
 
+    private void SwapEveryTime()
+    {
+        if (time >= randomTimeInterval)
+        {
+            glow.SetActive(true);
+            Invoke("Swap", 1);
+            time = 0;
+            randomTimeInterval = CalculateRandomTime(false);
+        }
 
-    private void Swap()
+        time += UnityEngine.Time.deltaTime;
+    }
+
+    public void Swap()
     {
         glow.SetActive(false);
         isAwake = !isAwake;
@@ -64,10 +68,17 @@ public class SwitchController : MonoBehaviour
         }
     }
 
-    private float CalculateRandomTime()
+    public static float CalculateRandomTime(bool doItNow)
     {
-        float random = Random.Range(2f, 10f);
-        return random;
+        if(doItNow)
+        {
+            randomTimeInterval = 0.0f;
+            return 0.0f;
+        } else
+        {
+            float random = Random.Range(2f, 10f);
+            return random;
+        }
     }
 
     private IEnumerator WaitABit()
@@ -76,9 +87,6 @@ public class SwitchController : MonoBehaviour
 
         Debug.Log("waiting!");
         yield return new WaitForSeconds(time);
-
-
-
         
     }
 }
