@@ -47,6 +47,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Move()
     {
+        Debug.Log(Input.GetAxisRaw("Horizontal"));
         float x = Input.GetAxisRaw("Horizontal");
         if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift))
         {
