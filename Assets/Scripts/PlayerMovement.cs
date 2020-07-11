@@ -28,6 +28,10 @@ public class PlayerMovement : MonoBehaviour
 
     public Animator animator;
 
+    float travel = 0f;
+    float currentheight;
+    float previousheight;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -46,18 +50,48 @@ public class PlayerMovement : MonoBehaviour
         Move();
         Jump();
         BetterJump();
-        CheckIfGrounded();
+        //CheckIfGrounded();
         CheckIfDead();
-        AnimateJump();
+        CheckIfFalling();
+        print(isGrounded);
+       // AnimateJump();
     }
 
     void Jump()
     {
         if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow)||  Input.GetKeyDown(KeyCode.W)) && (isGrounded || Time.time - lastTimeGrounded <= rememberGroundedFor))
         {
-            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+            animator.SetBool("pressedJump", true);
+            isGrounded = false;
+            animator.SetBool("isGrounded", false);
+            Invoke("JumpEffect", 0.05f);
         }
+    }
 
+    void JumpEffect()
+    {
+        animator.SetBool("Jumping", true);
+        animator.SetBool("pressedJump", false);
+        animator.SetBool("isGrounded", false);
+        rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+    }
+
+    void CheckIfFalling()
+    {
+        currentheight = transform.position.y;
+        travel = currentheight - previousheight;
+        if (travel > 0.0 && !isGrounded)
+        {
+            animator.SetBool("isGrounded", false);
+            animator.SetBool("isFalling", false);
+            animator.SetBool("Jumping", true);
+        } else if (travel < 0.0 && !isGrounded)
+        {
+            animator.SetBool("isGrounded", false);
+            animator.SetBool("isFalling", true);
+            animator.SetBool("Jumping", false);
+        }
+        previousheight = currentheight;
     }
 
     void Move()
@@ -78,26 +112,37 @@ public class PlayerMovement : MonoBehaviour
         {
             Flip();
         }
-
-       
     }
 
-    void CheckIfGrounded()
+    //void CheckIfGrounded()
+    //{
+    //    //Collider2D colliders = Physics2D.OverlapCircle(isGroundedChecker.position, checkGroundRadius, groundLayer);
+    //    //if (colliders != null)
+    //    //{
+    //    //    isGrounded = true;
+    //    //    animator.SetBool("isGrounded", true);
+    //    //    animator.SetBool("Jumping", false);
+    //    //}
+    //    //else
+    //    //{
+    //    //    if (isGrounded)
+    //    //    {
+    //    //        previousheight = transform.position.y;
+    //    //        lastTimeGrounded = Time.time;
+    //    //    }
+    //    //    isGrounded = false;
+    //    //}
+    //}
+
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        Collider2D colliders = Physics2D.OverlapCircle(isGroundedChecker.position, checkGroundRadius, groundLayer);
-        if (colliders != null)
+        if (collision.gameObject.tag == "Ground")
         {
             isGrounded = true;
-            
-        }
-        else
+            animator.SetBool("isGrounded", true);
+            animator.SetBool("Jumping", false);
+        } else
         {
-            if (isGrounded)
-            {
-                //animator.SetBool("Jumping", false);
-                lastTimeGrounded = Time.time;
-            }
-            //animator.SetBool("Jumping", true);
             isGrounded = false;
         }
     }
@@ -116,7 +161,7 @@ public class PlayerMovement : MonoBehaviour
 
     void CheckIfDead()
     {
-        if (transform.position.y < fallThreshold) //Assuming its a 2D game
+        if (transform.position.y < fallThreshold)
         {
             GameState.isGameOver = true;
         }
@@ -128,16 +173,5 @@ public class PlayerMovement : MonoBehaviour
         Vector3 scale = transform.localScale;
         scale.x *= -1;
         transform.localScale = scale;
-    }
-
-    private void AnimateJump()
-    {
-        if(rb.velocity.y > 0)
-        {
-            animator.SetBool("Jumping", true);
-        } else
-        {
-            animator.SetBool("Jumping", false);
-        }
     }
 }
