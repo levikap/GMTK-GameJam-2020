@@ -53,7 +53,6 @@ public class PlayerMovement : MonoBehaviour
         //CheckIfGrounded();
         CheckIfDead();
         CheckIfFalling();
-        print(isGrounded);
        // AnimateJump();
     }
 
