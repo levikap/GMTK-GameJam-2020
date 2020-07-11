@@ -15,6 +15,7 @@ public class SwitchController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        isAwake = true;
         dreamObjects.active = true;
         awakeObjects.active = false;
     }
@@ -37,6 +38,7 @@ public class SwitchController : MonoBehaviour
 
     private void Swap()
     {
+        isAwake = !isAwake;
         if (dreamObjects.active)
         {
             dreamObjects.active = false;

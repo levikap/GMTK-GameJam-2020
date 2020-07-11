@@ -24,7 +24,6 @@ public class CollectableBehavior : MonoBehaviour
 
     void Update()
     {
-        SwitchController.isAwake = false;
         if (SwitchController.isAwake)
         {
             foreach(GameObject cookie in cookies)
@@ -55,6 +54,7 @@ public class CollectableBehavior : MonoBehaviour
             //var cameraPosition = GameObject.FindGameObjectWithTag("MainCamera").transform.position;
 
             //AudioSource.PlayClipAtPoint(pickupSFX, cameraPosition);
+            Destroy(transform.parent.gameObject);
             Destroy(gameObject);
         }
     }
@@ -66,12 +66,5 @@ public class CollectableBehavior : MonoBehaviour
         {
             GameState.isLevelWon = true;
         }
-        //if (!GameState.isGameOver)
-        //{
-        //    if (pickupCount <= 0)
-        //    {
-        //        gs.GetComponent<GameState>().LevelBeat();
-        //    }
-        //}
     }
 }
