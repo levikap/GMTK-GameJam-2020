@@ -11,14 +11,14 @@ public class ParticleHandler : MonoBehaviour
     void Start()
     {
         glow = GetComponent<ParticleSystem>();
-
+        
         
     }
 
     // Update is called once per frame
     void Update()
     {
-        CheckIfAboutToSwitch();
+        glow.Play();
     }
 
 
