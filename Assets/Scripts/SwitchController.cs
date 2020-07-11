@@ -9,15 +9,19 @@ public class SwitchController : MonoBehaviour
     public GameObject dreamObjects;
     public GameObject awakeObjects;
     public GameObject player;
+    public GameObject glow;
     public int timeToWait = 2;
-    public static bool playParticles;
+    public static bool startGlow;
 
     public float time = 0.0f;
+    public float waitTime = 1.0f;
     public float randomTimeInterval = 10f;
+    public bool glowState = false;
 
     // Start is called before the first frame update
     void Start()
     {
+        glow.SetActive(glowState);
         isAwake = true;
         dreamObjects.SetActive(false);
         awakeObjects.SetActive(true);
@@ -28,7 +32,8 @@ public class SwitchController : MonoBehaviour
     {
         if (time >= randomTimeInterval)
             {
-                Swap();
+                glow.SetActive(true);
+                Invoke("Swap", 1);
                 time = 0;
                 randomTimeInterval = CalculateRandomTime();
          }
@@ -40,24 +45,19 @@ public class SwitchController : MonoBehaviour
 
     private void Swap()
     {
-        playParticles = true;
-        Debug.Log("playing particles, swapping");
-        //yield return new WaitForSecondsRealtime(1);
+        glow.SetActive(false);
         isAwake = !isAwake;
 
         if (dreamObjects.activeSelf)
         {
             dreamObjects.SetActive(false);
             awakeObjects.SetActive(true);
-        } else
+        }
+        else
         {
             dreamObjects.SetActive(true);
             awakeObjects.SetActive(false);
         }
-
-        WaitABit();
-     
-        playParticles = false;
     }
 
     private float CalculateRandomTime()
@@ -68,7 +68,14 @@ public class SwitchController : MonoBehaviour
 
     private IEnumerator WaitABit()
     {
+        glow.SetActive(!glowState);
+
+        Debug.Log("waiting!");
         yield return new WaitForSeconds(time);
+
+
+
+        
     }
 }
 

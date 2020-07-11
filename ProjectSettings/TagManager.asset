@@ -11,6 +11,7 @@ TagManager:
   - CollectableStar
   - Ground
   - WallChecker
+  - Glow
   layers:
   - Default
   - TransparentFX
