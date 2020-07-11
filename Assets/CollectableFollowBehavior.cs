@@ -6,10 +6,6 @@ public class CollectableFollowBehavior : MonoBehaviour
 {
     //public AudioClip pickupSFX;
     //public AudioClip pickupSFX;
-    public static int maxCookiesPickUpCount = 0;
-    public static int maxStarsPickUpCount = 0;
-    public static int starsPickedUpCount = 0;
-    public static int cookiesPickedUpCount = 0;
 
     public static GameObject[] cookies;
     public static GameObject[] stars;
@@ -17,27 +13,28 @@ public class CollectableFollowBehavior : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (gameObject.tag == "CollectableStar")
+        if (gameObject.tag == "CollectableFollowStar")
         {
-            maxStarsPickUpCount++;
+            print("exists star");
+            CollectableBehavior.maxStarsPickUpCount++;
         }
-        if (gameObject.tag == "CollectableCookie")
+        if (gameObject.tag == "CollectableFollowCookie")
         {
-            maxCookiesPickUpCount++;
+            print("exists cookie");
+            CollectableBehavior.maxCookiesPickUpCount++;
         }
-        starsPickedUpCount = 0;
-        cookiesPickedUpCount = 0;
+        CollectableBehavior.starsPickedUpCount = 0;
+        CollectableBehavior.cookiesPickedUpCount = 0;
     }
 
     void Update()
     {
-        stars = GameObject.FindGameObjectsWithTag("CollectableStar");
-        cookies = GameObject.FindGameObjectsWithTag("CollectableCookie");
+        stars = GameObject.FindGameObjectsWithTag("CollectableFollowStar");
+        cookies = GameObject.FindGameObjectsWithTag("CollectableFollowCookie");
         if (SwitchController.isAwake)
         {
             foreach (GameObject cookie in cookies)
             {
-                //cookie.SetActive(true);
                 cookie.GetComponent<Renderer>().enabled = true;
                 cookie.GetComponent<CircleCollider2D>().enabled = true;
 
@@ -46,7 +43,8 @@ public class CollectableFollowBehavior : MonoBehaviour
             {
                 star.GetComponent<Renderer>().enabled = false;
                 star.GetComponent<CircleCollider2D>().enabled = false;
-                //star.SetActive(false);
+                Transform vegetable = star.gameObject.transform.parent.gameObject.GetComponentsInChildren<Transform>()[2];
+                star.gameObject.transform.position = vegetable.position;
             }
         }
         else
@@ -55,13 +53,13 @@ public class CollectableFollowBehavior : MonoBehaviour
             {
                 cookie.GetComponent<Renderer>().enabled = false;
                 cookie.GetComponent<CircleCollider2D>().enabled = false;
-                //cookie.SetActive(false);
+                Transform monster = cookie.gameObject.transform.parent.gameObject.GetComponentsInChildren<Transform>()[2];
+                cookie.gameObject.transform.position = monster.position;
             }
             foreach (GameObject star in stars)
             {
                 star.GetComponent<Renderer>().enabled = true;
                 star.GetComponent<CircleCollider2D>().enabled = true;
-                //star.SetActive(true);
             }
         }
     }
@@ -78,15 +76,16 @@ public class CollectableFollowBehavior : MonoBehaviour
 
     void OnDestroy()
     {
-        if (gameObject.tag == "CollectableStar")
+        if (gameObject.tag == "CollectableFollowStar")
         {
-            starsPickedUpCount++;
+            CollectableBehavior.starsPickedUpCount++;
         }
         else
         {
-            cookiesPickedUpCount++;
+            CollectableBehavior.cookiesPickedUpCount++;
         }
-        if (starsPickedUpCount == maxStarsPickUpCount && cookiesPickedUpCount == maxCookiesPickUpCount)
+        if (CollectableBehavior.starsPickedUpCount == CollectableBehavior.maxStarsPickUpCount &&
+            CollectableBehavior.cookiesPickedUpCount == CollectableBehavior.maxCookiesPickUpCount)
         {
             GameState.isLevelWon = true;
         }

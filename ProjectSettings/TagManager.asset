@@ -13,6 +13,9 @@ TagManager:
   - WallChecker
   - Glow
   - EnemyVegetableFollow
+  - EnemyMonsterFollow
+  - CollectableFollowStar
+  - CollectableFollowCookie
   layers:
   - Default
   - TransparentFX
