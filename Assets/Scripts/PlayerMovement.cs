@@ -32,6 +32,8 @@ public class PlayerMovement : MonoBehaviour
     float currentheight;
     float previousheight;
 
+    public GameObject glowObject;
+
     public static bool isHittingWall = false;
 
     // Start is called before the first frame update
@@ -200,5 +202,14 @@ public class PlayerMovement : MonoBehaviour
         {
             GameState.isGameOver = true;
         }
+
+        if(collision.tag == "SceneSwitcher")
+        {
+            SwitchController.CalculateRandomTime(true);
+        }
     }
+
+
+
+
 }
