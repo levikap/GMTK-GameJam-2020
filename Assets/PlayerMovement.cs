@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour
     public float jumpForce;
     public float speed;
     public float runSpeed;
+    public float fallThreshold = -10;
     Rigidbody2D rb;
 
     bool isGrounded = false;
@@ -85,6 +86,14 @@ public class PlayerMovement : MonoBehaviour
         else if (rb.velocity.y > 0 && !Input.GetKey(KeyCode.Space))
         {
             rb.velocity += Vector2.up * Physics2D.gravity * (lowJumpMultiplier - 1) * Time.deltaTime;
+        }
+    }
+
+    void CheckIfDead()
+    {
+        if (transform.position.y < fallThreshold) //Assuming its a 2D game
+        {
+            GameState.isGameOver = true;
         }
     }
 }
