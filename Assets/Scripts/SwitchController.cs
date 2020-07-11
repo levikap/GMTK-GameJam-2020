@@ -6,8 +6,8 @@ public class SwitchController : MonoBehaviour
 {
 
     public static bool isAwake;
-    public GameObject dreamObjects;
-    public GameObject awakeObjects;
+    private GameObject dreamObjects;
+    private GameObject awakeObjects;
     private GameObject player;
     private GameObject glow;
     public int timeToWait = 2;
@@ -21,6 +21,8 @@ public class SwitchController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        dreamObjects = GameObject.FindGameObjectWithTag("DreamObjects");
+        awakeObjects = GameObject.FindGameObjectWithTag("AwakeObjects");
         player = GameObject.FindGameObjectWithTag("Player");
         glow = GameObject.FindGameObjectWithTag("Glow");
         glow.SetActive(glowState);

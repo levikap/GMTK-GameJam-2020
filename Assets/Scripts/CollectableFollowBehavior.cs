@@ -15,12 +15,10 @@ public class CollectableFollowBehavior : MonoBehaviour
     {
         if (gameObject.tag == "CollectableFollowStar")
         {
-            print("exists star");
             CollectableBehavior.maxStarsPickUpCount++;
         }
         if (gameObject.tag == "CollectableFollowCookie")
         {
-            print("exists cookie");
             CollectableBehavior.maxCookiesPickUpCount++;
         }
         CollectableBehavior.starsPickedUpCount = 0;
