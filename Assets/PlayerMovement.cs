@@ -18,18 +18,28 @@ public class PlayerMovement : MonoBehaviour
     public float fallMultiplier = 2.5f;
     public float lowJumpMultiplier = 2f;
 
+    public SpriteRenderer spriteRenderer;
+
     public float rememberGroundedFor;
     float lastTimeGrounded;
+
+    private bool facingRight = true;
+    private float lastMovement;
 
     // Start is called before the first frame update
     void Start()
     {
+        spriteRenderer = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if((facingRight == true && lastMovement == -1) || (facingRight == false && lastMovement == 1))
+        {
+            spriteRenderer.flipX = true;
+        }
         transform.rotation = new Quaternion(0, 0, 0, 0);
         Move();
         Jump();
@@ -47,6 +57,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Move()
     {
+ 
         float x = Input.GetAxisRaw("Horizontal");
         if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift))
         {
@@ -58,6 +69,17 @@ public class PlayerMovement : MonoBehaviour
             rb.velocity = new Vector2(moveBy, rb.velocity.y);
         }
 
+        lastMovement = x;
+
+        if(x > 0 && !facingRight)
+        {
+            Flip();
+        } else if (x < 0 && facingRight)
+        {
+            Flip();
+        }
+
+       
     }
 
     void CheckIfGrounded()
@@ -95,5 +117,13 @@ public class PlayerMovement : MonoBehaviour
         {
             GameState.isGameOver = true;
         }
+    }
+
+    private void Flip()
+    {
+        facingRight = !facingRight;
+        Vector3 scale = transform.localScale;
+        scale.x *= -1;
+        transform.localScale = scale;
     }
 }
