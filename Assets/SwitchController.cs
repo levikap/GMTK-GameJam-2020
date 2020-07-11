@@ -50,7 +50,7 @@ public class SwitchController : MonoBehaviour
 
     private float CalculateRandomTime()
     {
-        float random = Random.Range(10f, 45f);
+        float random = Random.Range(2f, 10f);
         return random;
     }
 }
