@@ -18,7 +18,6 @@ public class CollectableBehavior : MonoBehaviour
     {
         maxPickUpCount++;
         pickedUpCount = 0;
-
     }
 
     void Update()
