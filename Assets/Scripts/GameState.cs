@@ -41,8 +41,10 @@ public class GameState : MonoBehaviour
 
     public void LevelLost()
     {
-        CollectableBehavior.maxPickUpCount = 0;
-        CollectableBehavior.pickedUpCount = 0;
+        CollectableBehavior.maxCookiesPickUpCount = 0;
+        CollectableBehavior.maxStarsPickUpCount = 0;
+        CollectableBehavior.starsPickedUpCount = 0;
+        CollectableBehavior.cookiesPickedUpCount = 0;
         if (currLevel == 1)
         {
             //isGameOver = false;
