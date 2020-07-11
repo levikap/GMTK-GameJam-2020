@@ -78,7 +78,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 2.4, y: 2.4}
+  m_Size: {x: 23.113535, y: 23.98}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -110,9 +110,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c3bf6c4ab19b34835b96df01de4c5007, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
-  gs: {fileID: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!95 &2949841851801409519
 Animator:
   serializedVersion: 3
@@ -128,7 +127,7 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
-  m_WarningMessage:
+  m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
@@ -226,9 +225,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b649d6f8b150a4efca5d0d7221f9151c, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
-  gs: {fileID: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
   animator: {fileID: 0}
   distanceToPlayer: 0
 --- !u!95 &946948897611093878
@@ -246,7 +244,7 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
-  m_WarningMessage:
+  m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
