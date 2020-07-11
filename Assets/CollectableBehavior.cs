@@ -16,36 +16,44 @@ public class CollectableBehavior : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        ++maxPickUpCount;
+        maxPickUpCount++;
         pickedUpCount = 0;
 
-        stars = GameObject.FindGameObjectsWithTag("CollectableStar");
-        cookies = GameObject.FindGameObjectsWithTag("CollectableCookie");
     }
 
     void Update()
     {
-        print(stars);
-        print("cookie" + cookies);
+        print("maxpickup " + maxPickUpCount);
+        print("picked up " + pickedUpCount);
+        stars = GameObject.FindGameObjectsWithTag("CollectableStar");
+        cookies = GameObject.FindGameObjectsWithTag("CollectableCookie");
         if (SwitchController.isAwake)
         {
             foreach(GameObject cookie in cookies)
             {
-                cookie.SetActive(true);
+                //cookie.SetActive(true);
+                cookie.GetComponent<Renderer>().enabled = true;
+                cookie.GetComponent<CircleCollider2D>().enabled = true;
             }
             foreach (GameObject star in stars)
             {
-                star.SetActive(false);
+                star.GetComponent<Renderer>().enabled = false;
+                star.GetComponent<CircleCollider2D>().enabled = false;
+                //star.SetActive(false);
             }
         } else
         {
             foreach (GameObject cookie in cookies)
             {
-                cookie.SetActive(false);
+                cookie.GetComponent<Renderer>().enabled = false;
+                cookie.GetComponent<CircleCollider2D>().enabled = false;
+                //cookie.SetActive(false);
             }
             foreach (GameObject star in stars)
             {
-                star.SetActive(true);
+                star.GetComponent<Renderer>().enabled = true;
+                star.GetComponent<CircleCollider2D>().enabled = true;
+                //star.SetActive(true);
             }
         }
     }
@@ -57,30 +65,6 @@ public class CollectableBehavior : MonoBehaviour
             GameObject parentObject = transform.parent.gameObject;
             Destroy(parentObject);
             Destroy(gameObject);
-            GameObject all = GameObject.FindGameObjectWithTag("AllCollectablesEnemies");
-            Transform[] allChildren = all.GetComponentsInChildren<Transform>();
-            foreach (Transform child in allChildren)
-            {
-                EnemyBehavior.monsters = new GameObject[0]; 
-                EnemyBehavior.monsters.Add<GameObject>(child.gameObject);
-            }
-
-            if (gameObject.tag == "CollectableCookie")
-            {
-                EnemyBehavior.monsters = GameObject.FindGameObjectsWithTag("EnemyMonster");
-            }
-            else
-            {
-                EnemyBehavior.vegetables = GameObject.FindGameObjectsWithTag("EnemyVegetable");
-            }
-            //if (gameObject.tag == "CollectableCookie")
-            //{
-            //    stars = GameObject.FindGameObjectsWithTag("CollectableCookie");
-            //}
-            //else
-            //{
-            //    cookies = GameObject.FindGameObjectsWithTag("CollectableStar");
-            //}
         }
     }
 

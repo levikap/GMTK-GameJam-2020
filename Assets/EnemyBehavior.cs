@@ -13,32 +13,41 @@ public class EnemyBehavior : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        vegetables = GameObject.FindGameObjectsWithTag("EnemyVegetable");
-        monsters = GameObject.FindGameObjectsWithTag("EnemyMonster");
+
     }
 
     void Update()
     {
+        vegetables = GameObject.FindGameObjectsWithTag("EnemyVegetable");
+        monsters = GameObject.FindGameObjectsWithTag("EnemyMonster");
         if (SwitchController.isAwake)
         {
             foreach (GameObject vegetable in vegetables)
             {
-                vegetable.SetActive(true);
+                vegetable.GetComponent<Renderer>().enabled = true;
+                vegetable.GetComponent<CircleCollider2D>().enabled = true;
+                //vegetable.SetActive(true);
             }
             foreach (GameObject monster in monsters)
             {
-                monster.SetActive(false);
+                monster.GetComponent<Renderer>().enabled = false;
+                monster.GetComponent<CircleCollider2D>().enabled = false;
+                //monster.SetActive(false);
             }
         }
         else
         {
             foreach (GameObject vegetable in vegetables)
             {
-                vegetable.SetActive(false);
+                vegetable.GetComponent<Renderer>().enabled = false;
+                vegetable.GetComponent<CircleCollider2D>().enabled = false;
+                //vegetable.SetActive(false);
             }
             foreach (GameObject monster in monsters)
             {
-                monster.SetActive(true);
+                monster.GetComponent<Renderer>().enabled = true;
+                monster.GetComponent<CircleCollider2D>().enabled = true;
+                //monster.SetActive(true);
             }
         }
     }
