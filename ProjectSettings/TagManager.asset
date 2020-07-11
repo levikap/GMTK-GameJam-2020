@@ -10,6 +10,7 @@ TagManager:
   - EnemyMonster
   - CollectableStar
   - Ground
+  - WallChecker
   layers:
   - Default
   - TransparentFX

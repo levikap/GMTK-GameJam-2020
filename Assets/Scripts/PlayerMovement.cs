@@ -32,9 +32,12 @@ public class PlayerMovement : MonoBehaviour
     float currentheight;
     float previousheight;
 
+    public static bool isHittingWall = false;
+
     // Start is called before the first frame update
     void Start()
     {
+        isHittingWall = false;
         spriteRenderer = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
     }
@@ -50,10 +53,9 @@ public class PlayerMovement : MonoBehaviour
         Move();
         Jump();
         BetterJump();
-        //CheckIfGrounded();
+        CheckIfGrounded();
         CheckIfDead();
         CheckIfFalling();
-        print(isGrounded);
        // AnimateJump();
     }
 
@@ -96,56 +98,60 @@ public class PlayerMovement : MonoBehaviour
 
     void Move()
     {
-
-        float x = Input.GetAxisRaw("Horizontal");
-
-        float moveBy = x * speed;
-        rb.velocity = new Vector2(moveBy, rb.velocity.y);
-        animator.SetFloat("Speed", Mathf.Abs(moveBy));
-
-        lastMovement = x;
-
-        if(x > 0 && !facingRight)
+        print(isHittingWall);
+        if (!isHittingWall)
         {
-            Flip();
-        } else if (x < 0 && facingRight)
-        {
-            Flip();
+            float x = Input.GetAxisRaw("Horizontal");
+
+            float moveBy = x * speed;
+            rb.velocity = new Vector2(moveBy, rb.velocity.y);
+            animator.SetFloat("Speed", Mathf.Abs(moveBy));
+
+            lastMovement = x;
+
+            if (x > 0 && !facingRight)
+            {
+                Flip();
+            }
+            else if (x < 0 && facingRight)
+            {
+                Flip();
+            }
         }
     }
 
-    //void CheckIfGrounded()
-    //{
-    //    //Collider2D colliders = Physics2D.OverlapCircle(isGroundedChecker.position, checkGroundRadius, groundLayer);
-    //    //if (colliders != null)
-    //    //{
-    //    //    isGrounded = true;
-    //    //    animator.SetBool("isGrounded", true);
-    //    //    animator.SetBool("Jumping", false);
-    //    //}
-    //    //else
-    //    //{
-    //    //    if (isGrounded)
-    //    //    {
-    //    //        previousheight = transform.position.y;
-    //    //        lastTimeGrounded = Time.time;
-    //    //    }
-    //    //    isGrounded = false;
-    //    //}
-    //}
-
-    private void OnCollisionEnter2D(Collision2D collision)
+    void CheckIfGrounded()
     {
-        if (collision.gameObject.tag == "Ground")
+        Collider2D colliders = Physics2D.OverlapCircle(isGroundedChecker.position, checkGroundRadius, groundLayer);
+        if (colliders != null)
         {
             isGrounded = true;
             animator.SetBool("isGrounded", true);
             animator.SetBool("Jumping", false);
-        } else
+        }
+        else
         {
+            if (isGrounded)
+            {
+                previousheight = transform.position.y;
+                lastTimeGrounded = Time.time;
+            }
             isGrounded = false;
         }
     }
+
+    //private void OnCollisionEnter2D(Collision2D collision)
+    //{
+    //    if (collision.gameObject.tag == "Ground")
+    //    {
+    //        isGrounded = true;
+    //        animator.SetBool("isGrounded", true);
+    //        animator.SetBool("Jumping", false);
+    //    } else
+    //    {
+    //        isGrounded = false;
+    //    }
+    //}
 
     void BetterJump()
     {
