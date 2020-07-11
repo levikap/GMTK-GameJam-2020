@@ -9,7 +9,7 @@ public class FollowCamera : MonoBehaviour
     public float followDistance;
 
     private GameObject target;
-    public float smoothSpeed = 10f;
+    public float smoothSpeed = 6f;
     public Vector3 offset;
 
 
@@ -24,7 +24,7 @@ public class FollowCamera : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (target)
+        if (target && GameState.isGameOver == false)
         {
             //Vector3 posNoZ = transform.position;
             //posNoZ.z = target.transform.position.z;

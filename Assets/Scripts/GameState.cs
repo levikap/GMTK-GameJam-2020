@@ -29,8 +29,9 @@ public class GameState : MonoBehaviour
     {
         if (isGameOver)
         {
-            isGameOver = false;
+            
             LevelLost();
+            isGameOver = false;
         }
         if (isLevelWon)
         {
@@ -48,19 +49,19 @@ public class GameState : MonoBehaviour
         if (currLevel == 1)
         {
             //isGameOver = false;
-            Invoke("LoadFirstLevel", 0);
+            Invoke("LoadFirstLevel", 1);
             
         }
         else if (currLevel == 2)
         {
             //isGameOver = false;
-            Invoke("LoadSecondLevel", 0);
+            Invoke("LoadSecondLevel", 1);
 
         }
         else if (currLevel == 3)
         {
             //isGameOver = false;
-            Invoke("LoadThirdLevel", 0);
+            Invoke("LoadThirdLevel", 1);
         }
     }
 
