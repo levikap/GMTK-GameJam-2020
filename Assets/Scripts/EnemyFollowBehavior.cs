@@ -74,7 +74,7 @@ public class EnemyFollowBehavior : MonoBehaviour
     private void AnimateIfPlayerClose()
     {
         distanceToPlayer = Vector3.Distance(player.transform.position, transform.position);
-        if (distanceToPlayer < 5.0f)
+        if (distanceToPlayer < 2.5f)
         {
             animator.SetBool("PlayerClose", true);
 
