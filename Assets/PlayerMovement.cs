@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour
     public float jumpForce;
     public float speed;
     public float runSpeed;
-    public float fallThreshold = -10;
+    public float fallThreshold = -5;
     Rigidbody2D rb;
 
     bool isGrounded = false;
@@ -45,6 +45,7 @@ public class PlayerMovement : MonoBehaviour
         Jump();
         BetterJump();
         CheckIfGrounded();
+        CheckIfDead();
     }
 
     void Jump()

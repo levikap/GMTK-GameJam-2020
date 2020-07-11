@@ -11,7 +11,7 @@ public class GameState : MonoBehaviour
 
     private string thirdLevel = "LevelThree";
     private string secondLevel = "LevelTwo";
-    private string firstLevel = "LevelOne";
+    private string firstLevel = "CollectablePrototype";
 
     public static int currLevel = 1;
 
@@ -39,19 +39,22 @@ public class GameState : MonoBehaviour
 
     public void LevelLost()
     {
-        isGameOver = true;
         if (currLevel == 1)
         {
-            Invoke("LoadFirstLevel", 2);
+            isGameOver = false;
+            Invoke("LoadFirstLevel", 0);
+            
         }
         else if (currLevel == 2)
         {
-            Invoke("LoadSecondLevel", 2);
+            isGameOver = false;
+            Invoke("LoadSecondLevel", 0);
 
         }
         else if (currLevel == 3)
         {
-            Invoke("LoadThirdLevel", 2);
+            isGameOver = false;
+            Invoke("LoadThirdLevel", 0);
         }
     }
 
@@ -90,6 +93,7 @@ public class GameState : MonoBehaviour
 
     public void LoadFirstLevel()
     {
+        isGameOver = false;
         SceneManager.LoadScene(firstLevel);
     }
 }
