@@ -38,7 +38,11 @@ public class SwitchController : MonoBehaviour
 
     private void Swap()
     {
+        FlashScreen();
+
+        yield return new WaitForSecondsRealtime(1);
         isAwake = !isAwake;
+
         if (dreamObjects.active)
         {
             dreamObjects.active = false;
@@ -54,6 +58,11 @@ public class SwitchController : MonoBehaviour
     {
         float random = Random.Range(2f, 10f);
         return random;
+    }
+
+    private void FlashScreen()
+    {
+
     }
 }
 
