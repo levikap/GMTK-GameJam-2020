@@ -12,6 +12,7 @@ TagManager:
   - Ground
   - WallChecker
   - Glow
+  - EnemyVegetableFollow
   layers:
   - Default
   - TransparentFX

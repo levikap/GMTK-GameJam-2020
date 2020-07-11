@@ -5,7 +5,6 @@ using UnityEngine;
 public class EnemyBehavior : MonoBehaviour
 {
     //public AudioClip pickupSFX;
-    public GameObject gs;
 
     public static GameObject[] vegetables;
     public static GameObject[] monsters;
@@ -34,6 +33,7 @@ public class EnemyBehavior : MonoBehaviour
         {
             foreach (GameObject vegetable in vegetables)
             {
+                vegetable.GetComponent<Renderer>().enabled = true;
                 vegetable.GetComponent<CapsuleCollider2D>().enabled = true;
                 //vegetable.SetActive(true);
             }

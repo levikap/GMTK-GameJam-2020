@@ -11,7 +11,6 @@ public class CollectableBehavior : MonoBehaviour
     public static int maxStarsPickUpCount = 0;
     public static int starsPickedUpCount = 0;
     public static int cookiesPickedUpCount = 0;
-    public GameObject gs;
 
     public static GameObject[] cookies;
     public static GameObject[] stars;
