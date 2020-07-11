@@ -16,8 +16,8 @@ public class SwitchController : MonoBehaviour
     void Start()
     {
         isAwake = true;
-        dreamObjects.active = true;
-        awakeObjects.active = false;
+        dreamObjects.SetActive(false);
+        awakeObjects.SetActive(true);
     }
 
     // Update is called once per frame
@@ -43,14 +43,14 @@ public class SwitchController : MonoBehaviour
         //yield return new WaitForSecondsRealtime(1);
         isAwake = !isAwake;
 
-        if (dreamObjects.active)
+        if (dreamObjects.activeSelf)
         {
-            dreamObjects.active = false;
-            awakeObjects.active = true;
+            dreamObjects.SetActive(false);
+            awakeObjects.SetActive(true);
         } else
         {
-            dreamObjects.active = true;
-            awakeObjects.active = false;
+            dreamObjects.SetActive(true);
+            awakeObjects.SetActive(false);
         }
     }
 
