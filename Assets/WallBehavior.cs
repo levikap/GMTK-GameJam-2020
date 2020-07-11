@@ -44,7 +44,6 @@ public class WallBehavior : MonoBehaviour
         {
            // player.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
             player.GetComponent<Rigidbody2D>().AddForce(new Vector3(0f, 1f, 0f));
-            print("fall!");
             isHittingWall = true;
         } else
         {

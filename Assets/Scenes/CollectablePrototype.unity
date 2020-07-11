@@ -210,6 +210,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CookieAndMonster (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4844225740214571426, guid: fbb5606ac41474e39a4336e05c1045f4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4844225740214571453, guid: fbb5606ac41474e39a4336e05c1045f4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -488,7 +493,7 @@ PrefabInstance:
     - target: {fileID: 2949841853677413767, guid: b0a3faa38ec004e95aa68fdf473bbfd3,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b0a3faa38ec004e95aa68fdf473bbfd3, type: 3}
@@ -503,6 +508,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: CookieAndMonster (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4844225740214571426, guid: fbb5606ac41474e39a4336e05c1045f4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4844225740214571453, guid: fbb5606ac41474e39a4336e05c1045f4,
         type: 3}
@@ -1002,6 +1012,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: CookieAndMonster (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4844225740214571426, guid: fbb5606ac41474e39a4336e05c1045f4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4844225740214571453, guid: fbb5606ac41474e39a4336e05c1045f4,
         type: 3}
@@ -1588,6 +1603,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: StarAndVegetable (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 2949841853677413767, guid: c3875e0f0d7004aad883667f8df1a4c3,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4129814760504022866, guid: c3875e0f0d7004aad883667f8df1a4c3,
         type: 3}
       propertyPath: m_IsTrigger
@@ -1695,7 +1715,7 @@ PrefabInstance:
     - target: {fileID: 4844225740214571426, guid: 268ac91a4dd834ce6a54cfa6181f89c0,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4844225740214571453, guid: 268ac91a4dd834ce6a54cfa6181f89c0,
         type: 3}
@@ -2094,6 +2114,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: StarAndVegetable
+      objectReference: {fileID: 0}
+    - target: {fileID: 2949841853677413767, guid: c3875e0f0d7004aad883667f8df1a4c3,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c3875e0f0d7004aad883667f8df1a4c3, type: 3}

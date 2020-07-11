@@ -35,14 +35,12 @@ public class EnemyFollowBehavior : MonoBehaviour
                 vegetable.GetComponent<Renderer>().enabled = true;
                 vegetable.GetComponent<CapsuleCollider2D>().enabled = true;
                 float step = speed * Time.deltaTime;
-                vegetable.transform.position = Vector2.MoveTowards(transform.position, player.transform.position, step);
-                //vegetable.SetActive(true);
+                vegetable.transform.position = Vector2.MoveTowards(vegetable.transform.position, player.transform.position, step);
             }
             foreach (GameObject monster in monsters)
             {
                 monster.GetComponent<Renderer>().enabled = false;
                 monster.GetComponent<CircleCollider2D>().enabled = false;
-                //monster.SetActive(false);
             }
         }
         else
@@ -51,15 +49,13 @@ public class EnemyFollowBehavior : MonoBehaviour
             {
                 vegetable.GetComponent<Renderer>().enabled = false;
                 vegetable.GetComponent<CapsuleCollider2D>().enabled = false;
-                //vegetable.SetActive(false);
             }
             foreach (GameObject monster in monsters)
             {
                 monster.GetComponent<Renderer>().enabled = true;
                 monster.GetComponent<CircleCollider2D>().enabled = true;
                 float step = speed * Time.deltaTime;
-                monster.transform.position = Vector2.MoveTowards(transform.position, player.transform.position, step);
-                //monster.SetActive(true);
+                monster.transform.position = Vector2.MoveTowards(monster.transform.position, player.transform.position, step);
             }
         }
     }
@@ -71,16 +67,13 @@ public class EnemyFollowBehavior : MonoBehaviour
             print("DEATH!");
 
             GameState.isGameOver = true;
-            //var cameraPosition = GameObject.FindGameObjectWithTag("MainCamera").transform.position;
-
-            //AudioSource.PlayClipAtPoint(pickupSFX, cameraPosition);
         }
     }
 
 
     private void AnimateIfPlayerClose()
     {
-        distanceToPlayer = Vector3.Distance(player.transform.position, this.transform.position);
+        distanceToPlayer = Vector3.Distance(player.transform.position, transform.position);
         if (distanceToPlayer < 5.0f)
         {
             animator.SetBool("PlayerClose", true);
