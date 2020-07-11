@@ -206,8 +206,8 @@ TilemapRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -283785447
-  m_SortingLayer: 0
+  m_SortingLayerID: -1211030031
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -731,8 +731,8 @@ TilemapRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -283785447
-  m_SortingLayer: 0
+  m_SortingLayerID: -1211030031
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0.072265625, z: 0}
@@ -1371,6 +1371,28 @@ PrefabInstance:
       objectReference: {fileID: 1456767677}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 191a5571f32c84244bf409ca637f9bfe, type: 3}
+--- !u!1 &1195246711 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2592114309768829339, guid: 566390278e24c4944a38eaa342d7b5d0,
+    type: 3}
+  m_PrefabInstance: {fileID: 1625842307}
+  m_PrefabAsset: {fileID: 0}
+--- !u!58 &1195246717
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1195246711}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.25, y: 2.084618}
+  serializedVersion: 2
+  m_Radius: 0.6307523
 --- !u!1 &1456767677
 GameObject:
   m_ObjectHideFlags: 0
@@ -1413,7 +1435,7 @@ GameObject:
   - component: {fileID: 1525076280}
   - component: {fileID: 1525076281}
   m_Layer: 0
-  m_Name: DreamGrid (1)
+  m_Name: AwakeGrid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1456,37 +1478,42 @@ PrefabInstance:
     - target: {fileID: 2592114309768829335, guid: 566390278e24c4944a38eaa342d7b5d0,
         type: 3}
       propertyPath: m_Offset.x
-      value: -0.33156657
+      value: -0.44663423
       objectReference: {fileID: 0}
     - target: {fileID: 2592114309768829335, guid: 566390278e24c4944a38eaa342d7b5d0,
         type: 3}
       propertyPath: m_Offset.y
-      value: 0.21334755
+      value: -0.35528898
       objectReference: {fileID: 0}
     - target: {fileID: 2592114309768829335, guid: 566390278e24c4944a38eaa342d7b5d0,
         type: 3}
       propertyPath: m_Size.y
-      value: 5.1232433
+      value: 3.9591494
+      objectReference: {fileID: 0}
+    - target: {fileID: 2592114309768829335, guid: 566390278e24c4944a38eaa342d7b5d0,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 1.5827659
       objectReference: {fileID: 0}
     - target: {fileID: 2592114309768829336, guid: 566390278e24c4944a38eaa342d7b5d0,
         type: 3}
       propertyPath: m_SortingLayerID
-      value: 2063891019
+      value: 1577949603
       objectReference: {fileID: 0}
     - target: {fileID: 2592114309768829336, guid: 566390278e24c4944a38eaa342d7b5d0,
         type: 3}
       propertyPath: m_SortingLayer
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2592114309768829337, guid: 566390278e24c4944a38eaa342d7b5d0,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8.22
+      value: -8.07
       objectReference: {fileID: 0}
     - target: {fileID: 2592114309768829337, guid: 566390278e24c4944a38eaa342d7b5d0,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.35
+      value: -2.89
       objectReference: {fileID: 0}
     - target: {fileID: 2592114309768829337, guid: 566390278e24c4944a38eaa342d7b5d0,
         type: 3}

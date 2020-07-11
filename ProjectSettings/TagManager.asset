@@ -14,45 +14,45 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  -
+  - 
   - Water
   - UI
-  -
-  -
-  - Ground
-  - Collectable
-  -
-  -
-  -
-  -
-  -
-  -
-  -
-  -
-  -
-  -
-  -
-  -
-  -
-  -
-  -
-  -
-  -
-  -
-  -
-  -
-  -
-  -
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
   m_SortingLayers:
   - name: Default
     uniqueID: 0
     locked: 0
   - name: Background
-    uniqueID: 2080108503
+    uniqueID: 463049725
     locked: 0
-  - name: Tiles
-    uniqueID: 4011181849
+  - name: Tile
+    uniqueID: 3083937265
     locked: 0
   - name: Player
-    uniqueID: 2063891019
+    uniqueID: 1577949603
     locked: 0
