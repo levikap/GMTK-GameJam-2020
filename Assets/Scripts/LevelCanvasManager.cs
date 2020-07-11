@@ -5,7 +5,8 @@ using UnityEngine.UI;
 
 public class LevelCanvasManager : MonoBehaviour
 {
-    public Text scoreText;
+    public Text scoreCookiesText;
+    public Text scoreStarsText;
     public Text levelText;
 
     // Start is called before the first frame update
@@ -17,6 +18,7 @@ public class LevelCanvasManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        scoreText.text = "Score: " + CollectableBehavior.pickedUpCount + "/" + CollectableBehavior.maxPickUpCount;
+        scoreCookiesText.text = "Cookies: " + CollectableBehavior.cookiesPickedUpCount + "/" + CollectableBehavior.maxCookiesPickUpCount;
+        scoreStarsText.text = "Stars: " + CollectableBehavior.starsPickedUpCount + "/" + CollectableBehavior.maxStarsPickUpCount;
     }
 }

@@ -6,8 +6,11 @@ using UnityEngine;
 public class CollectableBehavior : MonoBehaviour
 {
     //public AudioClip pickupSFX;
-    public static int maxPickUpCount = 0;
-    public static int pickedUpCount = 0;
+    //public AudioClip pickupSFX;
+    public static int maxCookiesPickUpCount = 0;
+    public static int maxStarsPickUpCount = 0;
+    public static int starsPickedUpCount = 0;
+    public static int cookiesPickedUpCount = 0;
     public GameObject gs;
 
     public static GameObject[] cookies;
@@ -16,8 +19,16 @@ public class CollectableBehavior : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        maxPickUpCount++;
-        pickedUpCount = 0;
+        if (gameObject.tag == "CollectableStar")
+        {
+            maxStarsPickUpCount++;
+        }
+        if (gameObject.tag == "CollectableCookie")
+        {
+            maxCookiesPickUpCount++;
+        }
+        starsPickedUpCount = 0;
+        cookiesPickedUpCount = 0;
     }
 
     void Update()
@@ -67,8 +78,14 @@ public class CollectableBehavior : MonoBehaviour
 
    void OnDestroy()
     {
-        pickedUpCount++;
-        if (pickedUpCount == maxPickUpCount)
+        if (gameObject.tag == "CollectableStar")
+        {
+            starsPickedUpCount++;
+        } else
+        {
+            cookiesPickedUpCount++;
+        }
+        if (starsPickedUpCount == maxStarsPickUpCount && cookiesPickedUpCount == maxCookiesPickUpCount)
         {
             GameState.isLevelWon = true;
         }
