@@ -48,6 +48,7 @@ public class PlayerMovement : MonoBehaviour
         BetterJump();
         CheckIfGrounded();
         CheckIfDead();
+        AnimateJump();
     }
 
     void Jump()
@@ -56,6 +57,7 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
         }
+
     }
 
     void Move()
@@ -86,13 +88,16 @@ public class PlayerMovement : MonoBehaviour
         if (colliders != null)
         {
             isGrounded = true;
+            
         }
         else
         {
             if (isGrounded)
             {
+                //animator.SetBool("Jumping", false);
                 lastTimeGrounded = Time.time;
             }
+            //animator.SetBool("Jumping", true);
             isGrounded = false;
         }
     }
@@ -123,5 +128,16 @@ public class PlayerMovement : MonoBehaviour
         Vector3 scale = transform.localScale;
         scale.x *= -1;
         transform.localScale = scale;
+    }
+
+    private void AnimateJump()
+    {
+        if(rb.velocity.y > 0)
+        {
+            animator.SetBool("Jumping", true);
+        } else
+        {
+            animator.SetBool("Jumping", false);
+        }
     }
 }
