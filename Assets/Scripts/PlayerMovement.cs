@@ -98,12 +98,11 @@ public class PlayerMovement : MonoBehaviour
 
     void Move()
     {
-        print(isHittingWall);
+        float x = Input.GetAxisRaw("Horizontal");
+
+        float moveBy = x * speed;
         if (!isHittingWall)
         {
-            float x = Input.GetAxisRaw("Horizontal");
-
-            float moveBy = x * speed;
             rb.velocity = new Vector2(moveBy, rb.velocity.y);
             animator.SetFloat("Speed", Mathf.Abs(moveBy));
 
@@ -117,6 +116,20 @@ public class PlayerMovement : MonoBehaviour
             {
                 Flip();
             }
+        } else if (facingRight && x < 0)
+        {
+            rb.velocity = new Vector2(moveBy, rb.velocity.y);
+            animator.SetFloat("Speed", Mathf.Abs(moveBy));
+
+            lastMovement = x;
+            Flip();
+        } else if (!facingRight && x > 0)
+        {
+            rb.velocity = new Vector2(moveBy, rb.velocity.y);
+            animator.SetFloat("Speed", Mathf.Abs(moveBy));
+
+            lastMovement = x;
+            Flip();
         }
     }
 
