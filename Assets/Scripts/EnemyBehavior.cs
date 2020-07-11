@@ -21,6 +21,7 @@ public class EnemyBehavior : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player");
         animator = gameObject.GetComponent<Animator>();
+        gs = GameObject.FindGameObjectWithTag("GameState");
     }
 
     void Update()
@@ -34,6 +35,7 @@ public class EnemyBehavior : MonoBehaviour
         {
             foreach (GameObject vegetable in vegetables)
             {
+                vegetable.GetComponent<Renderer>().enabled = true;
                 vegetable.GetComponent<CapsuleCollider2D>().enabled = true;
                 //vegetable.SetActive(true);
             }

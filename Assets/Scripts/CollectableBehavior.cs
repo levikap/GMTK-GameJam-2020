@@ -19,6 +19,7 @@ public class CollectableBehavior : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        gs = GameObject.FindGameObjectWithTag("GameState");
         if (gameObject.tag == "CollectableStar")
         {
             maxStarsPickUpCount++;

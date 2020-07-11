@@ -11,6 +11,8 @@ TagManager:
   - CollectableStar
   - Ground
   - WallChecker
+  - GameState
+  - EnemyVFollow
   layers:
   - Default
   - TransparentFX
