@@ -26,6 +26,8 @@ public class PlayerMovement : MonoBehaviour
     private bool facingRight = true;
     private float lastMovement;
 
+    public Animator animator;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -68,6 +70,7 @@ public class PlayerMovement : MonoBehaviour
         {
             float moveBy = x * speed;
             rb.velocity = new Vector2(moveBy, rb.velocity.y);
+            animator.SetFloat("Speed", Mathf.Abs(moveBy));
         }
 
         lastMovement = x;
