@@ -17,11 +17,11 @@ public class CollectableFollowBehavior : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (gameObject.tag == "CollectableStar")
+        if (gameObject.tag == "CollectableFollowStar")
         {
             maxStarsPickUpCount++;
         }
-        if (gameObject.tag == "CollectableCookie")
+        if (gameObject.tag == "CollectableFollowCookie")
         {
             maxCookiesPickUpCount++;
         }
@@ -31,8 +31,8 @@ public class CollectableFollowBehavior : MonoBehaviour
 
     void Update()
     {
-        stars = GameObject.FindGameObjectsWithTag("CollectableStar");
-        cookies = GameObject.FindGameObjectsWithTag("CollectableCookie");
+        stars = GameObject.FindGameObjectsWithTag("CollectableFollowStar");
+        cookies = GameObject.FindGameObjectsWithTag("CollectableFollowCookie");
         if (SwitchController.isAwake)
         {
             foreach (GameObject cookie in cookies)
@@ -46,6 +46,8 @@ public class CollectableFollowBehavior : MonoBehaviour
             {
                 star.GetComponent<Renderer>().enabled = false;
                 star.GetComponent<CircleCollider2D>().enabled = false;
+                Transform vegetable = gameObject.transform.parent.gameObject.transform.FindChild("Vegetable");
+                star.GetComponent<Transform>().position = vegetable.position;
                 //star.SetActive(false);
             }
         }
@@ -55,6 +57,8 @@ public class CollectableFollowBehavior : MonoBehaviour
             {
                 cookie.GetComponent<Renderer>().enabled = false;
                 cookie.GetComponent<CircleCollider2D>().enabled = false;
+                Transform monster = gameObject.transform.parent.gameObject.transform.FindChild("Monster");
+                cookie.GetComponent<Transform>().position = monster.position;
                 //cookie.SetActive(false);
             }
             foreach (GameObject star in stars)
@@ -78,7 +82,7 @@ public class CollectableFollowBehavior : MonoBehaviour
 
     void OnDestroy()
     {
-        if (gameObject.tag == "CollectableStar")
+        if (gameObject.tag == "CollectableFollowStar")
         {
             starsPickedUpCount++;
         }

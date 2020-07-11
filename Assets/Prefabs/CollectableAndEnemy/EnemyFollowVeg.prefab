@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 200144750541650095}
   m_Layer: 0
   m_Name: Star
-  m_TagString: CollectableStar
+  m_TagString: CollectableFollowStar
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -81,7 +81,7 @@ SpriteRenderer:
   m_Size: {x: 2.4, y: 2.4}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!58 &2949841851801409516
@@ -275,7 +275,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2949841853677413760}
   m_Layer: 0
-  m_Name: EnemyFollow
+  m_Name: EnemyFollowVeg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

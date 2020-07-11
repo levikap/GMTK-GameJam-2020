@@ -11,7 +11,7 @@ public class EnemyFollowBehavior : MonoBehaviour
     private GameObject player;
 
     public Animator animator;
-    public float speed = 2f;
+    public float speed = 1f;
 
     public float distanceToPlayer;
 
@@ -27,7 +27,7 @@ public class EnemyFollowBehavior : MonoBehaviour
         AnimateIfPlayerClose();
 
         vegetables = GameObject.FindGameObjectsWithTag("EnemyVegetableFollow");
-        monsters = GameObject.FindGameObjectsWithTag("EnemyMonster");
+        monsters = GameObject.FindGameObjectsWithTag("EnemyMonsterFollow");
         if (SwitchController.isAwake)
         {
             foreach (GameObject vegetable in vegetables)
@@ -42,8 +42,6 @@ public class EnemyFollowBehavior : MonoBehaviour
             {
                 monster.GetComponent<Renderer>().enabled = false;
                 monster.GetComponent<CircleCollider2D>().enabled = false;
-                float step = speed * Time.deltaTime;
-                monster.transform.position = Vector2.MoveTowards(transform.position, player.transform.position, step);
                 //monster.SetActive(false);
             }
         }
@@ -59,6 +57,8 @@ public class EnemyFollowBehavior : MonoBehaviour
             {
                 monster.GetComponent<Renderer>().enabled = true;
                 monster.GetComponent<CircleCollider2D>().enabled = true;
+                float step = speed * Time.deltaTime;
+                monster.transform.position = Vector2.MoveTowards(transform.position, player.transform.position, step);
                 //monster.SetActive(true);
             }
         }
