@@ -56,6 +56,7 @@ public class PlayerMovement : MonoBehaviour
         CheckIfGrounded();
         CheckIfDead();
         CheckIfFalling();
+
        // AnimateJump();
     }
 
@@ -182,10 +183,7 @@ public class PlayerMovement : MonoBehaviour
 
     void CheckIfDead()
     {
-        if (transform.position.y < fallThreshold)
-        {
-            GameState.isGameOver = true;
-        }
+        
     }
 
     private void Flip()
@@ -194,5 +192,13 @@ public class PlayerMovement : MonoBehaviour
         Vector3 scale = transform.localScale;
         scale.x *= -1;
         transform.localScale = scale;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.tag == "PlayerDie")
+        {
+            GameState.isGameOver = true;
+        }
     }
 }

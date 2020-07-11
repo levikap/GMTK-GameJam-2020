@@ -11,7 +11,7 @@ public class GameState : MonoBehaviour
 
     private string thirdLevel = "LevelThree";
     private string secondLevel = "LevelTwo";
-    private string firstLevel = "CollectablePrototype";
+    private string firstLevel = "Level-1";
 
     public static int currLevel = 1;
 
