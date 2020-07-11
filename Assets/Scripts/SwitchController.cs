@@ -15,7 +15,7 @@ public class SwitchController : MonoBehaviour
 
     public float time = 0.0f;
     public float waitTime = 1.0f;
-    public float randomTimeInterval = 10f;
+    public static float randomTimeInterval = 10f;
     public bool glowState = false;
 
     // Start is called before the first frame update
@@ -72,6 +72,7 @@ public class SwitchController : MonoBehaviour
     {
         if(doItNow)
         {
+            randomTimeInterval = 0.0f;
             return 0.0f;
         } else
         {

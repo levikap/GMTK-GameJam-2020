@@ -205,6 +205,7 @@ public class PlayerMovement : MonoBehaviour
 
         if(collision.tag == "SceneSwitcher")
         {
+            Debug.Log("swap!");
             SwitchController.CalculateRandomTime(true);
         }
     }
