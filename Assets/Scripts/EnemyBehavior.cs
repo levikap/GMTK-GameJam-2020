@@ -10,14 +10,24 @@ public class EnemyBehavior : MonoBehaviour
     public static GameObject[] vegetables;
     public static GameObject[] monsters;
 
+    private GameObject player;
+
+    public Animator animator;
+
+    public float distanceToPlayer;
+
     // Start is called before the first frame update
     void Start()
     {
-
+        player = GameObject.FindGameObjectWithTag("Player");
+        animator = gameObject.GetComponent<Animator>();
     }
 
     void Update()
     {
+        AnimateIfPlayerClose();
+        
+
         vegetables = GameObject.FindGameObjectsWithTag("EnemyVegetable");
         monsters = GameObject.FindGameObjectsWithTag("EnemyMonster");
         if (SwitchController.isAwake)
@@ -62,6 +72,21 @@ public class EnemyBehavior : MonoBehaviour
             //var cameraPosition = GameObject.FindGameObjectWithTag("MainCamera").transform.position;
 
             //AudioSource.PlayClipAtPoint(pickupSFX, cameraPosition);
+        }
+    }
+
+
+    private void AnimateIfPlayerClose()
+    {
+        distanceToPlayer = Vector3.Distance(player.transform.position, this.transform.position);
+        if (distanceToPlayer < 5.0f)
+        {
+            animator.SetBool("PlayerClose", true);
+
+        }
+        else
+        {
+            animator.SetBool("PlayerClose", false);
         }
     }
 }

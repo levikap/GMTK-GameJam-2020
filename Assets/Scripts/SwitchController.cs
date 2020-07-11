@@ -8,6 +8,9 @@ public class SwitchController : MonoBehaviour
     public static bool isAwake;
     public GameObject dreamObjects;
     public GameObject awakeObjects;
+    public GameObject player;
+    public int timeToWait = 2;
+    public static bool playParticles;
 
     public float time = 0.0f;
     public float randomTimeInterval = 10f;
@@ -16,20 +19,19 @@ public class SwitchController : MonoBehaviour
     void Start()
     {
         isAwake = true;
-        dreamObjects.active = true;
-        awakeObjects.active = false;
+        dreamObjects.SetActive(false);
+        awakeObjects.SetActive(true);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
         if (time >= randomTimeInterval)
-        {
-            Swap();
-            time = 0;
-            randomTimeInterval = CalculateRandomTime();
-        }
+            {
+                Swap();
+                time = 0;
+                randomTimeInterval = CalculateRandomTime();
+         }
 
         time += UnityEngine.Time.deltaTime;
        
@@ -38,20 +40,24 @@ public class SwitchController : MonoBehaviour
 
     private void Swap()
     {
-        FlashScreen();
-
+        playParticles = true;
+        Debug.Log("playing particles, swapping");
         //yield return new WaitForSecondsRealtime(1);
         isAwake = !isAwake;
 
-        if (dreamObjects.active)
+        if (dreamObjects.activeSelf)
         {
-            dreamObjects.active = false;
-            awakeObjects.active = true;
+            dreamObjects.SetActive(false);
+            awakeObjects.SetActive(true);
         } else
         {
-            dreamObjects.active = true;
-            awakeObjects.active = false;
+            dreamObjects.SetActive(true);
+            awakeObjects.SetActive(false);
         }
+
+        WaitABit();
+     
+        playParticles = false;
     }
 
     private float CalculateRandomTime()
@@ -60,9 +66,10 @@ public class SwitchController : MonoBehaviour
         return random;
     }
 
-    private void FlashScreen()
+    private IEnumerator WaitABit()
     {
-
+        yield return new WaitForSeconds(time);
     }
 }
+
 
