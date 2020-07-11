@@ -60,18 +60,12 @@ public class PlayerMovement : MonoBehaviour
 
     void Move()
     {
- 
+
         float x = Input.GetAxisRaw("Horizontal");
-        if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift))
-        {
-            float moveBy = x * runSpeed;
-            rb.velocity = new Vector2(moveBy, rb.velocity.y);
-        } else
-        {
-            float moveBy = x * speed;
-            rb.velocity = new Vector2(moveBy, rb.velocity.y);
-            animator.SetFloat("Speed", Mathf.Abs(moveBy));
-        }
+
+        float moveBy = x * speed;
+        rb.velocity = new Vector2(moveBy, rb.velocity.y);
+        animator.SetFloat("Speed", Mathf.Abs(moveBy));
 
         lastMovement = x;
 
