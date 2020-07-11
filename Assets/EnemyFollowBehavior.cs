@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class EnemyFollowBehavior : MonoBehaviour
 {
-    public GameObject gs;
 
     public static GameObject[] vegetables;
     public static GameObject[] monsters;
@@ -19,7 +18,6 @@ public class EnemyFollowBehavior : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        gs = GameObject.FindGameObjectWithTag("GameState");
         player = GameObject.FindGameObjectWithTag("Player");
         animator = gameObject.GetComponent<Animator>();
     }
@@ -28,8 +26,8 @@ public class EnemyFollowBehavior : MonoBehaviour
     {
         AnimateIfPlayerClose();
 
-        vegetables = GameObject.FindGameObjectsWithTag("EnemyVFollow");
-        monsters = GameObject.FindGameObjectsWithTag("EnemyMonsterFollow");
+        vegetables = GameObject.FindGameObjectsWithTag("EnemyVegetableFollow");
+        monsters = GameObject.FindGameObjectsWithTag("EnemyMonster");
         if (SwitchController.isAwake)
         {
             foreach (GameObject vegetable in vegetables)

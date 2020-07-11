@@ -10,7 +10,6 @@ public class CollectableFollowBehavior : MonoBehaviour
     public static int maxStarsPickUpCount = 0;
     public static int starsPickedUpCount = 0;
     public static int cookiesPickedUpCount = 0;
-    public GameObject gs;
 
     public static GameObject[] cookies;
     public static GameObject[] stars;
@@ -18,7 +17,6 @@ public class CollectableFollowBehavior : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        gs = GameObject.FindGameObjectWithTag("GameState");
         if (gameObject.tag == "CollectableStar")
         {
             maxStarsPickUpCount++;

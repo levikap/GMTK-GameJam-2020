@@ -131,7 +131,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb92cb5da859249d086f447412e29dda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gs: {fileID: 0}
 --- !u!1 &2949841853334028560
 GameObject:
   m_ObjectHideFlags: 0
@@ -263,9 +262,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b69c10708005a465dab261bca4211ff7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gs: {fileID: 0}
   animator: {fileID: 0}
-  speed: 2
+  speed: 1
   distanceToPlayer: 0
 --- !u!1 &2949841853677413767
 GameObject:

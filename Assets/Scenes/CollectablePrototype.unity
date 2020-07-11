@@ -423,7 +423,7 @@ PrefabInstance:
     - target: {fileID: 2949841853334028560, guid: b0a3faa38ec004e95aa68fdf473bbfd3,
         type: 3}
       propertyPath: m_TagString
-      value: EnemyVFollow
+      value: EnemyVegetableFollow
       objectReference: {fileID: 0}
     - target: {fileID: 2949841853677413760, guid: b0a3faa38ec004e95aa68fdf473bbfd3,
         type: 3}
@@ -1610,7 +1610,7 @@ GameObject:
   - component: {fileID: 1630999712}
   m_Layer: 0
   m_Name: GameState
-  m_TagString: GameState
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1656,9 +1656,12 @@ MonoBehaviour:
   dreamObjects: {fileID: 792482313}
   awakeObjects: {fileID: 962791546}
   player: {fileID: 0}
+  glow: {fileID: 0}
   timeToWait: 2
   time: 0
+  waitTime: 1
   randomTimeInterval: 10
+  glowState: 0
 --- !u!114 &1630999712
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -5,7 +5,6 @@ using UnityEngine;
 public class EnemyBehavior : MonoBehaviour
 {
     //public AudioClip pickupSFX;
-    public GameObject gs;
 
     public static GameObject[] vegetables;
     public static GameObject[] monsters;
@@ -21,7 +20,6 @@ public class EnemyBehavior : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player");
         animator = gameObject.GetComponent<Animator>();
-        gs = GameObject.FindGameObjectWithTag("GameState");
     }
 
     void Update()
