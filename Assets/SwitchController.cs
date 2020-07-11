@@ -40,7 +40,7 @@ public class SwitchController : MonoBehaviour
     {
         FlashScreen();
 
-        yield return new WaitForSecondsRealtime(1);
+        //yield return new WaitForSecondsRealtime(1);
         isAwake = !isAwake;
 
         if (dreamObjects.active)
