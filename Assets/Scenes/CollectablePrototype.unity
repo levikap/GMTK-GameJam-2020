@@ -1159,8 +1159,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2073552240}
-  - {fileID: 668607556}
   - {fileID: 1598564061}
+  - {fileID: 668607556}
   - {fileID: 197686420}
   - {fileID: 966461292}
   m_Father: {fileID: 0}
@@ -1412,7 +1412,7 @@ PrefabInstance:
     - target: {fileID: 2949841853677413760, guid: c3875e0f0d7004aad883667f8df1a4c3,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2949841853677413760, guid: c3875e0f0d7004aad883667f8df1a4c3,
         type: 3}
@@ -1433,6 +1433,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: StarAndVegetable (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4129814760504022866, guid: c3875e0f0d7004aad883667f8df1a4c3,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c3875e0f0d7004aad883667f8df1a4c3, type: 3}
@@ -1705,7 +1710,7 @@ PrefabInstance:
     - target: {fileID: 2949841853677413760, guid: c3875e0f0d7004aad883667f8df1a4c3,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2949841853677413760, guid: c3875e0f0d7004aad883667f8df1a4c3,
         type: 3}

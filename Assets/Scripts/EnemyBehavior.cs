@@ -34,8 +34,7 @@ public class EnemyBehavior : MonoBehaviour
         {
             foreach (GameObject vegetable in vegetables)
             {
-                vegetable.GetComponent<Renderer>().enabled = true;
-                vegetable.GetComponent<CircleCollider2D>().enabled = true;
+                vegetable.GetComponent<CapsuleCollider2D>().enabled = true;
                 //vegetable.SetActive(true);
             }
             foreach (GameObject monster in monsters)
@@ -50,7 +49,7 @@ public class EnemyBehavior : MonoBehaviour
             foreach (GameObject vegetable in vegetables)
             {
                 vegetable.GetComponent<Renderer>().enabled = false;
-                vegetable.GetComponent<CircleCollider2D>().enabled = false;
+                vegetable.GetComponent<CapsuleCollider2D>().enabled = false;
                 //vegetable.SetActive(false);
             }
             foreach (GameObject monster in monsters)

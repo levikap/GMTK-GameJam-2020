@@ -97,9 +97,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.007893785, y: 0}
+  m_Offset: {x: 0.0035546042, y: -0.085865065}
   serializedVersion: 2
-  m_Radius: 1.0026321
+  m_Radius: 1.2487782
 --- !u!114 &2949841851801409507
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -110,8 +110,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c3bf6c4ab19b34835b96df01de4c5007, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   gs: {fileID: 0}
 --- !u!95 &2949841851801409519
 Animator:
@@ -128,7 +128,7 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
-  m_WarningMessage: 
+  m_WarningMessage:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
@@ -142,9 +142,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2949841853334028572}
   - component: {fileID: 2949841853334028563}
-  - component: {fileID: 2949841853334028562}
   - component: {fileID: 2949841853334028561}
-  - component: {fileID: 226112426233376556}
+  - component: {fileID: 946948897611093878}
+  - component: {fileID: 4129814760504022866}
   m_Layer: 0
   m_Name: Vegetable
   m_TagString: EnemyVegetable
@@ -205,8 +205,8 @@ SpriteRenderer:
   m_SortingLayerID: 1577949603
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 50d84a7449b234ef5b9bd270fbe306aa, type: 3}
-  m_Color: {r: 0, g: 1, b: 0.0408051, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 2805fdd7e8a0b461aa17f7b80a5c224a, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -216,8 +216,42 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!58 &2949841853334028562
-CircleCollider2D:
+--- !u!114 &2949841853334028561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2949841853334028560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b649d6f8b150a4efca5d0d7221f9151c, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  gs: {fileID: 0}
+  animator: {fileID: 0}
+  distanceToPlayer: 0
+--- !u!95 &946948897611093878
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2949841853334028560}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4e9e72a654ef04e67bd46a892df9a9f7, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage:
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!70 &4129814760504022866
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -229,37 +263,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.007893785, y: 0}
-  serializedVersion: 2
-  m_Radius: 1.0026321
---- !u!114 &2949841853334028561
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2949841853334028560}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b649d6f8b150a4efca5d0d7221f9151c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gs: {fileID: 0}
-  animator: {fileID: 0}
-  distanceToPlayer: 0
---- !u!114 &226112426233376556
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2949841853334028560}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c3bf6c4ab19b34835b96df01de4c5007, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gs: {fileID: 0}
+  m_Offset: {x: -0.084848054, y: 0.045687426}
+  m_Size: {x: 1.7904805, y: 3.4091249}
+  m_Direction: 0
 --- !u!1 &2949841853677413767
 GameObject:
   m_ObjectHideFlags: 0
