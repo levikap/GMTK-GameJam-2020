@@ -46,7 +46,7 @@ public class CollectableFollowBehavior : MonoBehaviour
             {
                 star.GetComponent<Renderer>().enabled = false;
                 star.GetComponent<CircleCollider2D>().enabled = false;
-                Transform vegetable = gameObject.transform.parent.gameObject.transform.FindChild("Vegetable");
+                Transform vegetable = gameObject.transform.parent.gameObject.GetComponentsInChildren<Transform>()[1];
                 star.GetComponent<Transform>().position = vegetable.position;
                 //star.SetActive(false);
             }
@@ -57,7 +57,7 @@ public class CollectableFollowBehavior : MonoBehaviour
             {
                 cookie.GetComponent<Renderer>().enabled = false;
                 cookie.GetComponent<CircleCollider2D>().enabled = false;
-                Transform monster = gameObject.transform.parent.gameObject.transform.FindChild("Monster");
+                Transform monster = gameObject.transform.parent.gameObject.GetComponentsInChildren<Transform>()[1];
                 cookie.GetComponent<Transform>().position = monster.position;
                 //cookie.SetActive(false);
             }
