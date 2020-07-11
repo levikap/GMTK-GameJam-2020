@@ -22,8 +22,6 @@ public class CollectableBehavior : MonoBehaviour
 
     void Update()
     {
-        print("maxpickup " + maxPickUpCount);
-        print("picked up " + pickedUpCount);
         stars = GameObject.FindGameObjectsWithTag("CollectableStar");
         cookies = GameObject.FindGameObjectsWithTag("CollectableCookie");
         if (SwitchController.isAwake)

@@ -5,6 +5,11 @@ TagManager:
   serializedVersion: 2
   tags:
   - Collectable
+  - EnemyVegetable
+  - CollectableCookie
+  - EnemyMonster
+  - CollectableStar
+  - Ground
   layers:
   - Default
   - TransparentFX
