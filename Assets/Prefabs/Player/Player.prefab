@@ -99,9 +99,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5df914967d12d40aeab01cfce0578ed9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 9
+  jumpForce: 10
   speed: 4
-  runSpeed: 10
+  runSpeed: 4
   fallThreshold: -10
   isGroundedChecker: {fileID: 2592114310159884617}
   checkGroundRadius: 0.3
