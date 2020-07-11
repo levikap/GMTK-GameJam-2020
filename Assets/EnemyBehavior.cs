@@ -7,8 +7,8 @@ public class EnemyBehavior : MonoBehaviour
     //public AudioClip pickupSFX;
     public GameObject gs;
 
-    private GameObject[] vegetables;
-    private GameObject[] monsters;
+    public static GameObject[] vegetables;
+    public static GameObject[] monsters;
 
     // Start is called before the first frame update
     void Start()
@@ -48,6 +48,7 @@ public class EnemyBehavior : MonoBehaviour
         if (col.gameObject.CompareTag("Player"))
         {
             print("DEATH!");
+            
             GameState.isGameOver = true;
             //var cameraPosition = GameObject.FindGameObjectWithTag("MainCamera").transform.position;
 

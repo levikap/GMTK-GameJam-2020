@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class CollectableBehavior : MonoBehaviour
@@ -9,8 +10,8 @@ public class CollectableBehavior : MonoBehaviour
     public static int pickedUpCount = 0;
     public GameObject gs;
 
-    private GameObject[] cookies;
-    private GameObject[] stars;
+    public static GameObject[] cookies;
+    public static GameObject[] stars;
 
     // Start is called before the first frame update
     void Start()
@@ -24,6 +25,8 @@ public class CollectableBehavior : MonoBehaviour
 
     void Update()
     {
+        print(stars);
+        print("cookie" + cookies);
         if (SwitchController.isAwake)
         {
             foreach(GameObject cookie in cookies)
@@ -51,11 +54,33 @@ public class CollectableBehavior : MonoBehaviour
     {
         if (col.gameObject.CompareTag("Player"))
         {
-            //var cameraPosition = GameObject.FindGameObjectWithTag("MainCamera").transform.position;
-
-            //AudioSource.PlayClipAtPoint(pickupSFX, cameraPosition);
-            Destroy(transform.parent.gameObject);
+            GameObject parentObject = transform.parent.gameObject;
+            Destroy(parentObject);
             Destroy(gameObject);
+            GameObject all = GameObject.FindGameObjectWithTag("AllCollectablesEnemies");
+            Transform[] allChildren = all.GetComponentsInChildren<Transform>();
+            foreach (Transform child in allChildren)
+            {
+                EnemyBehavior.monsters = new GameObject[0]; 
+                EnemyBehavior.monsters.Add<GameObject>(child.gameObject);
+            }
+
+            if (gameObject.tag == "CollectableCookie")
+            {
+                EnemyBehavior.monsters = GameObject.FindGameObjectsWithTag("EnemyMonster");
+            }
+            else
+            {
+                EnemyBehavior.vegetables = GameObject.FindGameObjectsWithTag("EnemyVegetable");
+            }
+            //if (gameObject.tag == "CollectableCookie")
+            //{
+            //    stars = GameObject.FindGameObjectsWithTag("CollectableCookie");
+            //}
+            //else
+            //{
+            //    cookies = GameObject.FindGameObjectsWithTag("CollectableStar");
+            //}
         }
     }
 
