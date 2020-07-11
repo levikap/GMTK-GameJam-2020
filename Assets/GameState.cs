@@ -15,7 +15,7 @@ public class GameState : MonoBehaviour
 
     public static int currLevel = 1;
 
-    GameObject player;
+    private GameObject player;
 
     // Start is called before the first frame update
     void Start()
@@ -27,33 +27,38 @@ public class GameState : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        print(currLevel);
         if (isGameOver)
         {
+            isGameOver = false;
             LevelLost();
         }
         if (isLevelWon)
         {
+            isLevelWon = false;
             LevelBeat();
         }
     }
 
     public void LevelLost()
     {
+        CollectableBehavior.maxPickUpCount = 0;
+        CollectableBehavior.pickedUpCount = 0;
         if (currLevel == 1)
         {
-            isGameOver = false;
+            //isGameOver = false;
             Invoke("LoadFirstLevel", 0);
             
         }
         else if (currLevel == 2)
         {
-            isGameOver = false;
+            //isGameOver = false;
             Invoke("LoadSecondLevel", 0);
 
         }
         else if (currLevel == 3)
         {
-            isGameOver = false;
+            //isGameOver = false;
             Invoke("LoadThirdLevel", 0);
         }
     }
