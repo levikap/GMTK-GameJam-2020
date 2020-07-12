@@ -26,7 +26,7 @@ public class DoubleBGMPlayer : ABGMPlayer, IDoubleBGMPlayer
             Destroy(this.gameObject);
         }
 
-        if (SceneManager.GetActiveScene().name == "MainMenu")
+        if (SceneManager.GetActiveScene().name == "MainMenuUI")
         {
             Destroy(this.gameObject);
         }
