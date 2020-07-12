@@ -154,6 +154,11 @@ public class PlayerMovement : MonoBehaviour
             animator.SetBool("isGrounded", false);
             animator.SetBool("Jumping", false);
             animator.SetBool("isFalling", true);
+        } else if (travel == 0 && isGrounded)
+        {
+            animator.SetBool("isGrounded", true);
+            animator.SetBool("Jumping", true);
+            animator.SetBool("isFalling", false);
         }
         previousheight = currentheight;
     }
