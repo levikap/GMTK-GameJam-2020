@@ -18,6 +18,9 @@ public class GameState : MonoBehaviour
     private string secondLevel = "Level2";
     private string thirdLevel = "Level3";
     private string fourthLevel = "Level4";
+    private string fifthLevel = "Level5";
+    private string sixthLevel = "Level6";
+    private string seventhLevel = "Level7";
 
     public static int currLevel = 1;
 
@@ -51,6 +54,15 @@ public class GameState : MonoBehaviour
             case "Level4":
                 currLevel = 4;
                 break;
+            case "Level5":
+                currLevel = 5;
+                break;
+            case "Level6":
+                currLevel = 6;
+                break;
+            case "Level7":
+                currLevel = 7;
+                break;
             default:
                 currLevel = 1;
                 break;
@@ -83,24 +95,6 @@ public class GameState : MonoBehaviour
         gameOverCanvas.SetActive(true);
         pauseMenu.PauseGameForLoadingScreen();
         Invoke("RestartLevel", 2);
-        //if (currLevel == 1)
-        //{
-        //    print("reload");
-        //    //isGameOver = false;
-        //    Invoke("LoadFirstLevel", 2);
-
-        //}
-        //else if (currLevel == 2)
-        //{
-        //    //isGameOver = false;
-        //    Invoke("LoadSecondLevel", 2);
-
-        //}
-        //else if (currLevel == 3)
-        //{
-        //    //isGameOver = false;
-        //    Invoke("LoadThirdLevel", 2);
-        //}
         Invoke("ResetCollectables", 2);
         isGameOver = true;
     }
@@ -140,6 +134,18 @@ public class GameState : MonoBehaviour
                 SceneManager.LoadScene(fourthLevel);
                 break;
             case 4:
+                ++currLevel;
+                SceneManager.LoadScene(fifthLevel);
+                break;
+            case 5:
+                ++currLevel;
+                SceneManager.LoadScene(sixthLevel);
+                break;
+            case 6:
+                ++currLevel;
+                SceneManager.LoadScene(seventhLevel);
+                break;
+            case 7:
                 //WIN!
                 isGameCompleted = true;
                 gameCompletedCanvas.SetActive(true);

@@ -121,6 +121,12 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &56611172 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8236014660643907123, guid: 566390278e24c4944a38eaa342d7b5d0,
+    type: 3}
+  m_PrefabInstance: {fileID: 461870072}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &99856450
 GameObject:
   m_ObjectHideFlags: 0
@@ -205,6 +211,11 @@ PrefabInstance:
       propertyPath: higherSwitchIntervalBound
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 5399170007623207220, guid: 8e4c695fadbe743be9ff5bf7c345f551,
+        type: 3}
+      propertyPath: glow
+      value: 
+      objectReference: {fileID: 56611172}
     - target: {fileID: 5399170008697495453, guid: 8e4c695fadbe743be9ff5bf7c345f551,
         type: 3}
       propertyPath: m_LocalPosition.z
