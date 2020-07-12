@@ -24,14 +24,6 @@ public class DoubleBGMPlayer : ABGMPlayer, IDoubleBGMPlayer
         this.loopB.mute();
     }
 
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            this.swapSongs();
-        }
-    }
-
     public void swapSongs()
     {
         this.loopA.fadeOut();

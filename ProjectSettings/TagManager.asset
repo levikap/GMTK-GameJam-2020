@@ -25,6 +25,10 @@ TagManager:
   - SceneSwitcherRight
   - SceneSwitcherLeft
   - CreditsInfo
+  - EnemyLimitedVeggie
+  - EnemyLimitedMonster
+  - CollectableLimitedCookie
+  - CollectableLimitedStar
   layers:
   - Default
   - TransparentFX
