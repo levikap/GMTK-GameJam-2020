@@ -56,19 +56,21 @@ public class SwitchController : MonoBehaviour
 
     public void Swap()
     {
-        SoundManagerScript.PlaySound("Transition1");
+        //SoundManagerScript.PlaySound("Transition1");
         musicPlayer.swapSongs();
         glow.SetActive(false);
         isAwake = !isAwake;
 
         if (dreamObjects.activeSelf)
         {
+            SoundManagerScript.PlaySound("TransitionToAwake");
             dreamObjects.SetActive(false);
             awakeObjects.SetActive(true);
 
         }
         else
         {
+            SoundManagerScript.PlaySound("TransitionToSleep");
             dreamObjects.SetActive(true);
             awakeObjects.SetActive(false);
         }
