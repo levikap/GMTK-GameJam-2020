@@ -45,6 +45,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   loopedBGMPrefab: {fileID: 8478224718286558116, guid: 6349966024389ab4e86f9514ec3ba487,
     type: 3}
-  song: {fileID: 8300000, guid: 89a0a33d241b7c1408fb496a26eda513, type: 3}
   volume: 1
-  secondsUntilLoopStarts: 112
+  secondsUntilLoopStarts: 59.5
+  song: {fileID: 8300000, guid: ef21bcfea59a240418cfebe82f8d94b3, type: 3}
