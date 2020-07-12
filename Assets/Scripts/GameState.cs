@@ -12,10 +12,10 @@ public class GameState : MonoBehaviour
     public GameObject gameOverCanvas;
     public GameObject gameWonCanvas;
 
-    private string fourthLevel = "LevelFour";
-    private string thirdLevel = "LevelThree";
-    private string secondLevel = "LevelTwo";
-    private string firstLevel = "Level-2";
+    private string firstLevel = "Level1";
+    private string secondtLevel = "Level2";
+    private string thirdLevel = "Level3";
+    private string fourthtLevel = "Level4";
 
     public static int currLevel = 1;
 
@@ -33,7 +33,24 @@ public class GameState : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         pauseMenu = GameObject.FindGameObjectWithTag("PauseMenu").GetComponent<PauseMenuScript>();
         currLevelName = SceneManager.GetActiveScene().name;
-
+        switch(currLevelName)
+        {
+            case "Level1":
+                currLevel = 1;
+                break;
+            case "Level2":
+                currLevel = 2;
+                break;
+            case "Level3":
+                currLevel = 3;
+                break;
+            case "Level4":
+                currLevel = 4;
+                break;
+            default:
+                currLevel = 1;
+                break;
+        }
     }
 
     // Update is called once per frame
