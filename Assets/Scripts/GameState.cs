@@ -10,6 +10,7 @@ public class GameState : MonoBehaviour
     public static bool isLevelWon = false;
 
     public GameObject gameOverCanvas;
+    public GameObject gameWonCanvas;
 
     private string thirdLevel = "LevelThree";
     private string secondLevel = "LevelTwo";
@@ -25,6 +26,7 @@ public class GameState : MonoBehaviour
     {
         isGameOver = false;
         gameOverCanvas.SetActive(false);
+        gameWonCanvas.SetActive(false);
         player = GameObject.FindGameObjectWithTag("Player");
         pauseMenu = GameObject.FindGameObjectWithTag("PauseMenu").GetComponent<PauseMenuScript>();
     }
@@ -72,6 +74,7 @@ public class GameState : MonoBehaviour
 
     public void LevelBeat()
     {
+        gameWonCanvas.SetActive(true);
         pauseMenu.PauseGameForLoadingScreen();
         if (currLevel == 1)
         {
