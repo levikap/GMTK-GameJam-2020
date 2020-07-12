@@ -34,7 +34,6 @@ public class GameState : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        print(currLevel);
         if (isLevelWon)
         {
             player.GetComponent<PlayerMovement>().StopMovingSound();

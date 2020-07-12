@@ -16,7 +16,7 @@ public class PlayerMovement : MonoBehaviour
     public LayerMask groundLayer;
 
     public float fallMultiplier = 2.5f;
-    public float lowJumpMultiplier = 2f;
+    public Vector2 lowJumpVector;
 
     public SpriteRenderer spriteRenderer;
 
@@ -31,6 +31,9 @@ public class PlayerMovement : MonoBehaviour
     float travel = 0f;
     float currentheight;
     float previousheight;
+
+    public bool jumpKeyHeld;
+    public bool isJumping = false;
 
     public GameObject glowObject;
 
@@ -58,11 +61,13 @@ public class PlayerMovement : MonoBehaviour
             }
             transform.rotation = new Quaternion(0, 0, 0, 0);
             Move();
-            Jump();
+            //Jump();
             BetterJump();
+            LowJump();
             CheckIfGrounded();
             CheckIfDead();
             CheckIfFalling();
+
             if (GameState.isGameOver || GameState.isLevelWon || !Input.anyKey)
             {
                 walkAudioSource.Stop();
@@ -78,26 +83,86 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    void Jump()
+    //void Jump()
+    //{
+    //    if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow)||  Input.GetKeyDown(KeyCode.W)) && (isGrounded || Time.time - lastTimeGrounded <= rememberGroundedFor))
+    //    {
+    //        animator.SetBool("Jumping", false);
+    //        animator.SetBool("isFalling", false);
+    //        animator.SetBool("isGrounded", false);
+    //        animator.SetBool("pressedJump", true);
+    //        isGrounded = false;
+    //        BetterJump();
+    //        SoundManagerScript.PlaySound("Jump");
+    //        Invoke("JumpEffect", 0.05f);
+    //    }
+    //}
+
+    void BetterJump()
     {
-        if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow)||  Input.GetKeyDown(KeyCode.W)) && (isGrounded || Time.time - lastTimeGrounded <= rememberGroundedFor))
+        
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            animator.SetBool("Jumping", false);
-            animator.SetBool("isFalling", false);
-            animator.SetBool("isGrounded", false);
-            animator.SetBool("pressedJump", true);
-            isGrounded = false;
-            SoundManagerScript.PlaySound("Jump");
-            Invoke("JumpEffect", 0.05f);
+
+            jumpKeyHeld = true;
+            if (isGrounded)
+            {
+                isJumping = true;
+                animator.SetBool("Jumping", false);
+                animator.SetBool("isFalling", false);
+                animator.SetBool("isGrounded", false);
+                animator.SetBool("pressedJump", true);
+                isGrounded = false;
+                SoundManagerScript.PlaySound("Jump");
+                Invoke("JumpEffect", 0.05f);
+                rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+            }
+        } else if (Input.GetKeyUp(KeyCode.Space))
+        {
+            Debug.Log("key released");
+            jumpKeyHeld = false;
+            Debug.Log("JKH after release: " + jumpKeyHeld);
+        }
+
+        if (isJumping)
+        {
+            if (!jumpKeyHeld)
+            {
+                rb.AddForce(lowJumpVector);
+            }
         }
     }
+
+    private void LowJump() 
+    {
+        
+    }
+
+
+    //if (rb.velocity.y < 0)
+
+
+    //{
+    //    rb.velocity += Vector2.up * Physics2D.gravity * (fallMultiplier - 1) * Time.deltaTime;
+    //}
+    //else if (rb.velocity.y > 0.1 && (!Input.GetKey(KeyCode.Space) || !Input.GetKey(KeyCode.UpArrow) || !Input.GetKey(KeyCode.W)))
+    //{
+    //    Debug.Log("low jump");
+    //    Debug.Log(rb.velocity.y);
+    //    rb.velocity = new Vector2(rb.velocity.x, jumpForce - lowJumpMultiplier);
+    //}
+    //else if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
+    //{
+    //    Debug.Log("high jump");
+    //    rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+    //}
 
     void JumpEffect()
     {
         animator.SetBool("pressedJump", false);
         animator.SetBool("isGrounded", false);
         animator.SetBool("Jumping", true);
-        rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+        //rb.velocity = new Vector2(rb.velocity.x, jumpForce);
     }
 
     void CheckIfFalling()
@@ -192,17 +257,7 @@ public class PlayerMovement : MonoBehaviour
     //    }
     //}
 
-    void BetterJump()
-    {
-        if (rb.velocity.y < 0)
-        {
-            rb.velocity += Vector2.up * Physics2D.gravity * (fallMultiplier - 1) * Time.deltaTime;
-        }
-        else if (rb.velocity.y > 0 && (!Input.GetKey(KeyCode.Space) || !Input.GetKeyDown(KeyCode.UpArrow) || !Input.GetKeyDown(KeyCode.W)))
-        {
-            rb.velocity += Vector2.up * Physics2D.gravity * (lowJumpMultiplier) * Time.deltaTime;
-        }
-    }
+    
 
     void CheckIfDead()
     {
