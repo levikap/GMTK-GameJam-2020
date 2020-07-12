@@ -21,6 +21,8 @@ public class GameState : MonoBehaviour
     private GameObject player;
     private PauseMenuScript pauseMenu;
 
+    public string currLevelName;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,6 +31,7 @@ public class GameState : MonoBehaviour
         gameWonCanvas.SetActive(false);
         player = GameObject.FindGameObjectWithTag("Player");
         pauseMenu = GameObject.FindGameObjectWithTag("PauseMenu").GetComponent<PauseMenuScript>();
+        currLevelName = SceneManager.GetActiveScene().name;
     }
 
     // Update is called once per frame
@@ -41,7 +44,8 @@ public class GameState : MonoBehaviour
             isLevelWon = false;
             isGameOver = false;
             LevelBeat();
-        } else if (isGameOver)
+        }
+        else if (isGameOver)
         {
             player.GetComponent<PlayerMovement>().StopMovingSound();
             LevelLost();
@@ -55,24 +59,25 @@ public class GameState : MonoBehaviour
         SoundManagerScript.PlaySound("Death");
         gameOverCanvas.SetActive(true);
         pauseMenu.PauseGameForLoadingScreen();
-        if (currLevel == 1)
-        {
-            print("reload");
-            //isGameOver = false;
-            Invoke("LoadFirstLevel", 2);
-            
-        }
-        else if (currLevel == 2)
-        {
-            //isGameOver = false;
-            Invoke("LoadSecondLevel", 2);
+        Invoke("RestartLevel", 2);
+        //if (currLevel == 1)
+        //{
+        //    print("reload");
+        //    //isGameOver = false;
+        //    Invoke("LoadFirstLevel", 2);
 
-        }
-        else if (currLevel == 3)
-        {
-            //isGameOver = false;
-            Invoke("LoadThirdLevel", 2);
-        }
+        //}
+        //else if (currLevel == 2)
+        //{
+        //    //isGameOver = false;
+        //    Invoke("LoadSecondLevel", 2);
+
+        //}
+        //else if (currLevel == 3)
+        //{
+        //    //isGameOver = false;
+        //    Invoke("LoadThirdLevel", 2);
+        //}
         Invoke("ResetCollectables", 2);
         isGameOver = true;
     }
@@ -97,7 +102,7 @@ public class GameState : MonoBehaviour
         }
         else if (currLevel == 3)
         {
-           //gameText.text = "YOU WIN!";
+            //gameText.text = "YOU WIN!";
         }
         Invoke("ResetCollectables", 2);
     }
@@ -123,5 +128,10 @@ public class GameState : MonoBehaviour
     public void LoadFirstLevel()
     {
         SceneManager.LoadScene(firstLevel);
+    }
+
+    private void RestartLevel()
+    {
+        SceneManager.LoadScene(currLevelName);
     }
 }
