@@ -19,6 +19,8 @@ public class SwitchController : MonoBehaviour
     public static float randomTimeInterval = 10f;
     public static bool glowState = false;
 
+    public DoubleBGMPlayer musicPlayer;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -55,6 +57,7 @@ public class SwitchController : MonoBehaviour
     public void Swap()
     {
         SoundManagerScript.PlaySound("Transition1");
+        //musicPlayer.swapSongs();
         glow.SetActive(false);
         isAwake = !isAwake;
 
@@ -62,6 +65,7 @@ public class SwitchController : MonoBehaviour
         {
             dreamObjects.SetActive(false);
             awakeObjects.SetActive(true);
+            
         }
         else
         {
