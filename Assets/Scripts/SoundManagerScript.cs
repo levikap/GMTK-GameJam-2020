@@ -5,48 +5,51 @@ using UnityEngine;
 public class SoundManagerScript : MonoBehaviour
 {
 
-    public static AudioClip playerDeathSound, playerWalkSound, playerJumpSound, playerCollectSound, awakeSleepSound;
+    public static AudioClip playerDeathSound, playerWalkSound, playerJumpSound, collectStarSound, collectCookieSound, awakeSleepSound, levelWonSound;
     static AudioSource audioSource;
 
     // Start is called before the first frame update
     void Start()
     {
-        playerDeathSound = Resources.Load<AudioClip>("FILENAME");
-        playerWalkSound = Resources.Load<AudioClip>("FILENAME");
-        playerJumpSound = Resources.Load<AudioClip>("FILENAME");
-        playerCollectSound = Resources.Load<AudioClip>("FILENAME");
-        awakeSleepSound = Resources.Load<AudioClip>("FILENAME");
+        playerDeathSound = Resources.Load<AudioClip>("Death");
+        playerWalkSound = Resources.Load<AudioClip>("Walk");
+        playerJumpSound = Resources.Load<AudioClip>("Jump");
+        collectStarSound = Resources.Load<AudioClip>("Star");
+        collectCookieSound = Resources.Load<AudioClip>("Cookie");
+        awakeSleepSound = Resources.Load<AudioClip>("Transition1");
+        levelWonSound = Resources.Load<AudioClip>("Win");
 
         audioSource = GetComponent<AudioSource>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public static void PlaySound(string clip)
     {
-        
+        switch (clip)
+        {
+            case "Death":
+                audioSource.PlayOneShot(playerDeathSound);
+                break;
+            case "Walk":
+                print("walk sound");
+                audioSource.PlayOneShot(playerWalkSound);
+                break;
+            case "Jump":
+                audioSource.PlayOneShot(playerJumpSound);
+                break;
+            case "CollectStar":
+                audioSource.PlayOneShot(collectStarSound);
+                break;
+            case "Crunch":
+                audioSource.PlayOneShot(collectCookieSound);
+                break;
+            case "Transaction1":
+                audioSource.PlayOneShot(awakeSleepSound);
+                break;
+            case "Win":
+                audioSource.PlayOneShot(levelWonSound);
+                break;
+            default:
+                break;
+        }
     }
-
-    //public static void PlaySound(string clip)
-    //{
-    //    switch(clip)
-    //    {
-    //        case "FILENAME":
-    //            audioSource.PlayOneShot(playerDeathSound);
-    //            break;
-    //        case "FILENAME":
-    //            audioSource.PlayOneShot(playerWalkSound);
-    //            break;
-    //        case "FILENAME":
-    //            audioSource.PlayOneShot(playerJumpSound);
-    //            break;
-    //        case "FILENAME":
-    //            audioSource.PlayOneShot(playerCollectSound);
-    //            break;
-    //        case "FILENAME":
-    //            audioSource.PlayOneShot(awakeSleepSound);
-    //            break;
-    //        default:
-    //            break;
-    //    }
-    //}
 }

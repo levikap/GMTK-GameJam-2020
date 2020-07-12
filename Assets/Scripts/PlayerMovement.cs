@@ -47,23 +47,25 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if((facingRight == true && lastMovement == -1) || (facingRight == false && lastMovement == 1))
+        if (!PauseMenuScript.isGamePaused)
         {
-            spriteRenderer.flipX = true;
+            if ((facingRight == true && lastMovement == -1) || (facingRight == false && lastMovement == 1))
+            {
+                spriteRenderer.flipX = true;
+            }
+            transform.rotation = new Quaternion(0, 0, 0, 0);
+            Move();
+            Jump();
+            BetterJump();
+            CheckIfGrounded();
+            CheckIfDead();
+            CheckIfFalling();
         }
-        transform.rotation = new Quaternion(0, 0, 0, 0);
-        Move();
-        Jump();
-        BetterJump();
-        CheckIfGrounded();
-        CheckIfDead();
-        CheckIfFalling();
-
-       // AnimateJump();
     }
 
     void Jump()
     {
+        SoundManagerScript.PlaySound("Jump");
         if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow)||  Input.GetKeyDown(KeyCode.W)) && (isGrounded || Time.time - lastTimeGrounded <= rememberGroundedFor))
         {
             animator.SetBool("Jumping", false);
@@ -135,6 +137,10 @@ public class PlayerMovement : MonoBehaviour
 
             lastMovement = x;
             Flip();
+        }
+        if (isGrounded && x != 0f)
+        {
+            SoundManagerScript.PlaySound("Walk");
         }
     }
 
@@ -209,8 +215,5 @@ public class PlayerMovement : MonoBehaviour
             SwitchController.CalculateRandomTime(true);
         }
     }
-
-
-
 
 }

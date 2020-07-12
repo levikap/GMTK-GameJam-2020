@@ -46,7 +46,9 @@ public class PauseMenuScript : MonoBehaviour
     public void PauseGameForLoadingScreen()
     {
         isGamePaused = true;
-        pauseMenu.SetActive(true);
+        Time.timeScale = 0f;
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
     }
 
     public void ResumeGame()

@@ -13,11 +13,12 @@ public class GameState : MonoBehaviour
 
     private string thirdLevel = "LevelThree";
     private string secondLevel = "LevelTwo";
-    private string firstLevel = "Level-1";
+    private string firstLevel = "Level-2";
 
     public static int currLevel = 1;
 
     private GameObject player;
+    private PauseMenuScript pauseMenu;
 
     // Start is called before the first frame update
     void Start()
@@ -25,21 +26,22 @@ public class GameState : MonoBehaviour
         isGameOver = false;
         gameOverCanvas.SetActive(false);
         player = GameObject.FindGameObjectWithTag("Player");
+        pauseMenu = GameObject.FindGameObjectWithTag("PauseMenu").GetComponent<PauseMenuScript>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (isGameOver)
-        {
-            
-            LevelLost();
-            isGameOver = false;
-        }
+        print(currLevel);
         if (isLevelWon)
         {
             isLevelWon = false;
+            isGameOver = false;
             LevelBeat();
+        } else if (isGameOver)
+        {
+            LevelLost();
+            isGameOver = false;
         }
     }
 
@@ -47,10 +49,7 @@ public class GameState : MonoBehaviour
     {
         isGameOver = true;
         gameOverCanvas.SetActive(true);
-        CollectableBehavior.maxCookiesPickUpCount = 0;
-        CollectableBehavior.maxStarsPickUpCount = 0;
-        CollectableBehavior.starsPickedUpCount = 0;
-        CollectableBehavior.cookiesPickedUpCount = 0;
+        pauseMenu.PauseGameForLoadingScreen();
         if (currLevel == 1)
         {
             //isGameOver = false;
@@ -68,11 +67,12 @@ public class GameState : MonoBehaviour
             //isGameOver = false;
             Invoke("LoadThirdLevel", 2);
         }
+        Invoke("ResetCollectables", 2);
     }
 
     public void LevelBeat()
     {
-        isGameOver = true;
+        pauseMenu.PauseGameForLoadingScreen();
         if (currLevel == 1)
         {
 
@@ -92,6 +92,15 @@ public class GameState : MonoBehaviour
            //gameText.text = "YOU WIN!";
             //gameText.gameObject.SetActive(true);
         }
+        Invoke("ResetCollectables", 2);
+    }
+
+    public void ResetCollectables()
+    {
+        CollectableBehavior.maxCookiesPickUpCount = 0;
+        CollectableBehavior.maxStarsPickUpCount = 0;
+        CollectableBehavior.starsPickedUpCount = 0;
+        CollectableBehavior.cookiesPickedUpCount = 0;
     }
 
     public void LoadThirdLevel()
