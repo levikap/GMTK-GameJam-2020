@@ -21,7 +21,7 @@ public class SwitchController : MonoBehaviour
 
     public float time = 0.0f;
     public float waitTime = 1.0f;
-    public static float randomTimeInterval = 10f;
+    public float randomTimeInterval;
     public static bool glowState = false;
     public bool currentlySwapping = false;
 
