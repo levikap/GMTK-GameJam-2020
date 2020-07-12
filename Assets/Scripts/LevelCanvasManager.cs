@@ -23,5 +23,11 @@ public class LevelCanvasManager : MonoBehaviour
             scoreCookiesText.text = "";
             scoreStarsText.text = "";
         }
+        if (GameState.isGameCompleted)
+        {
+            levelText.text = "";
+            scoreCookiesText.text = "";
+            scoreStarsText.text = "";
+        }
     }
 }

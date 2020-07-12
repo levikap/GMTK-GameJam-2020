@@ -8,9 +8,11 @@ public class GameState : MonoBehaviour
 {
     public static bool isGameOver = false;
     public static bool isLevelWon = false;
+    public static bool isGameCompleted = false;
 
     public GameObject gameOverCanvas;
     public GameObject gameWonCanvas;
+    public GameObject gameCompletedCanvas;
 
     private string firstLevel = "Level1";
     private string secondLevel = "Level2";
@@ -27,13 +29,15 @@ public class GameState : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        isGameCompleted = false;
         isGameOver = false;
         gameOverCanvas.SetActive(false);
         gameWonCanvas.SetActive(false);
+        gameCompletedCanvas.SetActive(false);
         player = GameObject.FindGameObjectWithTag("Player");
         pauseMenu = GameObject.FindGameObjectWithTag("PauseMenu").GetComponent<PauseMenuScript>();
         currLevelName = SceneManager.GetActiveScene().name;
-        switch(currLevelName)
+        switch (currLevelName)
         {
             case "Level1":
                 currLevel = 1;
@@ -134,6 +138,11 @@ public class GameState : MonoBehaviour
             case 3:
                 ++currLevel;
                 SceneManager.LoadScene(fourthLevel);
+                break;
+            case 4:
+                //WIN!
+                isGameCompleted = true;
+                gameCompletedCanvas.SetActive(true);
                 break;
             default:
                 break;
