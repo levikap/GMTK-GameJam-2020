@@ -84,6 +84,10 @@ public class PlayerMovement : MonoBehaviour
             {
                 walkAudioSource.Stop();
             }
+            if (isGrounded == true && !Input.anyKey)
+            {
+                rb.angularVelocity = 0f;
+            }
         }
     }
 
