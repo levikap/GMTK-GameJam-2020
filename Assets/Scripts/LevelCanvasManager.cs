@@ -9,16 +9,19 @@ public class LevelCanvasManager : MonoBehaviour
     public Text scoreStarsText;
     public Text levelText;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        levelText.text = "Level - " + GameState.currLevel;
-    }
-
     // Update is called once per frame
     void Update()
     {
-        scoreCookiesText.text = "Cookies: " + CollectableBehavior.cookiesPickedUpCount + "/" + CollectableBehavior.maxCookiesPickUpCount;
-        scoreStarsText.text = "Stars: " + CollectableBehavior.starsPickedUpCount + "/" + CollectableBehavior.maxStarsPickUpCount;
+        if (!PauseMenuScript.isGamePaused)
+        {
+            levelText.text = "Level - " + GameState.currLevel;
+            scoreCookiesText.text = "Cookies: " + CollectableBehavior.cookiesPickedUpCount + "/" + CollectableBehavior.maxCookiesPickUpCount;
+            scoreStarsText.text = "Stars: " + CollectableBehavior.starsPickedUpCount + "/" + CollectableBehavior.maxStarsPickUpCount;
+        } else
+        {
+            levelText.text = "";
+            scoreCookiesText.text = "";
+            scoreStarsText.text = "";
+        }
     }
 }

@@ -87,20 +87,17 @@ public class GameState : MonoBehaviour
         {
 
             ++currLevel;
-            //gameText.gameObject.SetActive(true);
             Invoke("LoadSecondLevel", 2);
         }
         else if (currLevel == 2)
         {
             ++currLevel;
-            //gameText.gameObject.SetActive(true);
             Invoke("LoadThirdLevel", 2);
 
         }
         else if (currLevel == 3)
         {
            //gameText.text = "YOU WIN!";
-            //gameText.gameObject.SetActive(true);
         }
         Invoke("ResetCollectables", 2);
     }
