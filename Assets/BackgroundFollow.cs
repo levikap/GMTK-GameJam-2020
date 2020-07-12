@@ -25,6 +25,10 @@ public class BackgroundFollow : MonoBehaviour
 
     void FixedUpdate()
     {
+        if(transform.position.x < 1.8)
+        {
+            transform.position = new Vector3(1.8f, transform.position.y);
+        }
         if (target && GameState.isGameOver == false)
         {
             //Vector3 posNoZ = transform.position;

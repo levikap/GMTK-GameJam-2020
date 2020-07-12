@@ -12,11 +12,12 @@ public class SwitchController : MonoBehaviour
     private GameObject glow;
     public int timeToWait = 2;
     public static bool startGlow;
+    
 
     public float time = 0.0f;
     public float waitTime = 1.0f;
     public static float randomTimeInterval = 10f;
-    public bool glowState = false;
+    public static bool glowState = false;
 
     // Start is called before the first frame update
     void Start()
