@@ -38,6 +38,14 @@ public class WallBehavior : MonoBehaviour
     //    }
     //}
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "DeathSpawnCheck")
+        {
+            GameState.isGameOver = true;
+        }
+    }
+
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "WallChecker")
@@ -57,5 +65,5 @@ public class WallBehavior : MonoBehaviour
         {
             isHittingWall = false;
             PlayerMovement.isHittingWall = false;        }
-    }
+        }
 }

@@ -29,6 +29,7 @@ TagManager:
   - EnemyLimitedMonster
   - CollectableLimitedCookie
   - CollectableLimitedStar
+  - DeathSpawnCheck
   layers:
   - Default
   - TransparentFX
