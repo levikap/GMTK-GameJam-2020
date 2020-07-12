@@ -103,7 +103,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5df914967d12d40aeab01cfce0578ed9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 11
+  jumpForce: 11.5
   speed: 4
   runSpeed: 4
   fallThreshold: -10
@@ -455,6 +455,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_TagString
       value: Glow
+      objectReference: {fileID: 0}
+    - target: {fileID: 1285118734034872058, guid: 1ffe261b3ccf744b69026540186be048,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: -1211030031
+      objectReference: {fileID: 0}
+    - target: {fileID: 1285118734034872058, guid: 1ffe261b3ccf744b69026540186be048,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1285118734034872061, guid: 1ffe261b3ccf744b69026540186be048,
         type: 3}
