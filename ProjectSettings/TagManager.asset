@@ -24,6 +24,7 @@ TagManager:
   - PauseMenu
   - SceneSwitcherRight
   - SceneSwitcherLeft
+  - CreditsInfo
   layers:
   - Default
   - TransparentFX
