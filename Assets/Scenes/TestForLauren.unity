@@ -233,9 +233,10 @@ GameObject:
   - component: {fileID: 428212167}
   - component: {fileID: 428212166}
   - component: {fileID: 428212165}
+  - component: {fileID: 428212168}
   m_Layer: 0
   m_Name: Tilemap
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1399,6 +1400,19 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &428212168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 428212163}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4430c6d40d16f418a81c3af65e2f51ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isHittingWall: 0
 --- !u!1001 &1024170457
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1511,7 +1525,7 @@ GameObject:
   - component: {fileID: 1231779711}
   m_Layer: 0
   m_Name: dreamGrid
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1555,9 +1569,10 @@ GameObject:
   - component: {fileID: 1396679367}
   - component: {fileID: 1396679366}
   - component: {fileID: 1396679365}
+  - component: {fileID: 1396679368}
   m_Layer: 0
   m_Name: Tilemap
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1947,6 +1962,19 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &1396679368
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1396679363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4430c6d40d16f418a81c3af65e2f51ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isHittingWall: 0
 --- !u!1 &1592485598
 GameObject:
   m_ObjectHideFlags: 0
@@ -1959,7 +1987,7 @@ GameObject:
   - component: {fileID: 1592485600}
   m_Layer: 0
   m_Name: awakeGrid
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
