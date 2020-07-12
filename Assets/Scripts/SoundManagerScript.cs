@@ -6,7 +6,7 @@ public class SoundManagerScript : MonoBehaviour
 {
 
     public static AudioClip playerDeathSound, playerWalkSound, playerJumpSound, collectStarSound, collectCookieSound, awakeSleepSound, levelWonSound,
-        transitionToSleepSound, transitionToAwakeSound;
+        transitionToSleepSound, transitionToAwakeSound, transitionWarning;
     public static AudioSource audioSource;
 
     // Start is called before the first frame update
@@ -21,6 +21,7 @@ public class SoundManagerScript : MonoBehaviour
         levelWonSound = Resources.Load<AudioClip>("Win");
         transitionToSleepSound = Resources.Load<AudioClip>("TransitionToSleep");
         transitionToAwakeSound = Resources.Load<AudioClip>("TransitionToAwake");
+        transitionWarning = Resources.Load<AudioClip>("TransitionWarning");
 
         audioSource = GetComponent<AudioSource>();
     }
