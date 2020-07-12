@@ -2997,6 +2997,11 @@ PrefabInstance:
       propertyPath: jumpForce
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 2592114309768829334, guid: 566390278e24c4944a38eaa342d7b5d0,
+        type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 1472646412}
     - target: {fileID: 2592114309768829337, guid: 566390278e24c4944a38eaa342d7b5d0,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5507,6 +5512,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2949841853677413760, guid: c3875e0f0d7004aad883667f8df1a4c3,
     type: 3}
   m_PrefabInstance: {fileID: 930871202}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1472646412 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1150356449, guid: 566390278e24c4944a38eaa342d7b5d0,
+    type: 3}
+  m_PrefabInstance: {fileID: 779193523}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1554896607
 GameObject:
