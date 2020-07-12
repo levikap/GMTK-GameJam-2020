@@ -74,8 +74,8 @@ public class SwitchController : MonoBehaviour
     {
         if(doItNow)
         {
-            randomTimeInterval = 1.0f;
-            return 0.0f;
+            randomTimeInterval = 2.0f;
+            return 2.0f;
         } else
         {
             float random = Random.Range(2f, 10f);

@@ -62,8 +62,7 @@ public class PlayerMovement : MonoBehaviour
             transform.rotation = new Quaternion(0, 0, 0, 0);
             Move();
             //Jump();
-            BetterJump();
-            LowJump();
+            Jump();
             CheckIfGrounded();
             CheckIfDead();
             CheckIfFalling();
@@ -98,10 +97,10 @@ public class PlayerMovement : MonoBehaviour
     //    }
     //}
 
-    void BetterJump()
+    void Jump()
     {
-        
-        if (Input.GetKeyDown(KeyCode.Space))
+
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) 
         {
 
             jumpKeyHeld = true;
@@ -117,7 +116,7 @@ public class PlayerMovement : MonoBehaviour
                 Invoke("JumpEffect", 0.05f);
                 rb.velocity = new Vector2(rb.velocity.x, jumpForce);
             }
-        } else if (Input.GetKeyUp(KeyCode.Space))
+        } else if (Input.GetKeyUp(KeyCode.Space) || Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.UpArrow))
         {
             Debug.Log("key released");
             jumpKeyHeld = false;
@@ -132,30 +131,6 @@ public class PlayerMovement : MonoBehaviour
             }
         }
     }
-
-    private void LowJump() 
-    {
-        
-    }
-
-
-    //if (rb.velocity.y < 0)
-
-
-    //{
-    //    rb.velocity += Vector2.up * Physics2D.gravity * (fallMultiplier - 1) * Time.deltaTime;
-    //}
-    //else if (rb.velocity.y > 0.1 && (!Input.GetKey(KeyCode.Space) || !Input.GetKey(KeyCode.UpArrow) || !Input.GetKey(KeyCode.W)))
-    //{
-    //    Debug.Log("low jump");
-    //    Debug.Log(rb.velocity.y);
-    //    rb.velocity = new Vector2(rb.velocity.x, jumpForce - lowJumpMultiplier);
-    //}
-    //else if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
-    //{
-    //    Debug.Log("high jump");
-    //    rb.velocity = new Vector2(rb.velocity.x, jumpForce);
-    //}
 
     void JumpEffect()
     {
