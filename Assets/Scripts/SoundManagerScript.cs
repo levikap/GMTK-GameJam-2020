@@ -54,6 +54,9 @@ public class SoundManagerScript : MonoBehaviour
             case "TransitionToAwake":
                 audioSource.PlayOneShot(transitionToAwakeSound);
                 break;
+            case "TransitionWarning":
+                audioSource.PlayOneShot(transitionWarning);
+                break;
             default:
                 break;
         }
