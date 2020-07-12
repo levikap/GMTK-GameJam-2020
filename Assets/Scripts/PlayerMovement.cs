@@ -200,7 +200,7 @@ public class PlayerMovement : MonoBehaviour
         }
         else if (rb.velocity.y > 0 && (!Input.GetKey(KeyCode.Space) || !Input.GetKeyDown(KeyCode.UpArrow) || !Input.GetKeyDown(KeyCode.W)))
         {
-            rb.velocity += Vector2.up * Physics2D.gravity * (lowJumpMultiplier - 1) * Time.deltaTime;
+            rb.velocity += Vector2.up * Physics2D.gravity * (lowJumpMultiplier) * Time.deltaTime;
         }
     }
 
@@ -231,10 +231,8 @@ public class PlayerMovement : MonoBehaviour
 
         if(collision.tag == "SceneSwitcherRight")
         {
-            if(facingRight)
-            {
                 SwitchController.CalculateRandomTime(true);
-            }
+            
         }
         if (collision.tag == "SceneSwitcherLeft")
         {
