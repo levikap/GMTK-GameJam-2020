@@ -12,6 +12,8 @@ public class SwitchController : MonoBehaviour
     private GameObject glow;
     public int timeToWait = 2;
     public static bool startGlow;
+    public float lowerSwitchIntervalBound;
+    public float higherSwitchIntervalBound;
     
     
     public float time = 0.0f;
@@ -72,7 +74,7 @@ public class SwitchController : MonoBehaviour
         }
     }
 
-    public static float CalculateRandomTime(bool doItNow)
+    public float CalculateRandomTime(bool doItNow)
     {
         if(doItNow)
         {
@@ -80,7 +82,7 @@ public class SwitchController : MonoBehaviour
             return 2.0f;
         } else
         {
-            float random = Random.Range(2f, 10f);
+            float random = Random.Range(lowerSwitchIntervalBound, higherSwitchIntervalBound);
             return random;
         }
     }

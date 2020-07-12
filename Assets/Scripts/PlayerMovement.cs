@@ -261,19 +261,20 @@ public class PlayerMovement : MonoBehaviour
 
         if(collision.tag == "SceneSwitcher")
         {
-            SwitchController.CalculateRandomTime(true);
+
+            //SwitchController.CalculateRandomTime(true);
         }
 
         if(collision.tag == "SceneSwitcherRight")
         {
-                SwitchController.CalculateRandomTime(true);
+                //SwitchController.CalculateRandomTime(true);
             
         }
         if (collision.tag == "SceneSwitcherLeft")
         {
             if (!facingRight)
             {
-                SwitchController.CalculateRandomTime(true);
+                //SwitchController.CalculateRandomTime(true);
             }
         }
     }
