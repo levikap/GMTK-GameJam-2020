@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class PauseMenuScript : MonoBehaviour
@@ -12,6 +13,10 @@ public class PauseMenuScript : MonoBehaviour
     public AudioClip buttonClick;
     public AudioSource audioSource;
 
+    public Text scoreCookiesText;
+    public Text scoreStarsText;
+    public Text levelText;
+
     private void Start()
     {
         buttonClick = Resources.Load<AudioClip>("Click");
@@ -22,6 +27,9 @@ public class PauseMenuScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        levelText.text = "Level - " + GameState.currLevel;
+        scoreCookiesText.text = "Cookies: " + CollectableBehavior.cookiesPickedUpCount + "/" + CollectableBehavior.maxCookiesPickUpCount;
+        scoreStarsText.text = "Stars: " + CollectableBehavior.starsPickedUpCount + "/" + CollectableBehavior.maxStarsPickUpCount;
         if (!GameState.isGameOver)
         {
             if (Input.GetKeyDown(KeyCode.Escape))
