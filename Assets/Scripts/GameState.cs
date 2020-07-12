@@ -88,22 +88,7 @@ public class GameState : MonoBehaviour
         SoundManagerScript.PlaySound("Win");
         gameWonCanvas.SetActive(true);
         pauseMenu.PauseGameForLoadingScreen();
-        if (currLevel == 1)
-        {
-
-            ++currLevel;
-            Invoke("LoadSecondLevel", 2);
-        }
-        else if (currLevel == 2)
-        {
-            ++currLevel;
-            Invoke("LoadThirdLevel", 2);
-
-        }
-        else if (currLevel == 3)
-        {
-            //gameText.text = "YOU WIN!";
-        }
+        Invoke("LoadNextLevel", 2);
         Invoke("ResetCollectables", 2);
     }
 
@@ -115,19 +100,23 @@ public class GameState : MonoBehaviour
         CollectableBehavior.cookiesPickedUpCount = 0;
     }
 
-    public void LoadThirdLevel()
+    public void LoadNextLevel()
     {
-        SceneManager.LoadScene(thirdLevel);
-    }
+        if (currLevel == 1)
+        {
+            ++currLevel;
+            SceneManager.LoadScene(secondLevel);
+        }
+        else if (currLevel == 2)
+        {
+            ++currLevel;
+            SceneManager.LoadScene(thirdLevel);
 
-    public void LoadSecondLevel()
-    {
-        SceneManager.LoadScene(secondLevel);
-    }
-
-    public void LoadFirstLevel()
-    {
-        SceneManager.LoadScene(firstLevel);
+        }
+        else if (currLevel == 3)
+        {
+            //gameText.text = "YOU WIN!";
+        }
     }
 
     private void RestartLevel()
