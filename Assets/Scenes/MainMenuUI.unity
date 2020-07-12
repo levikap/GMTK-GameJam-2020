@@ -804,16 +804,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 912583785988771950, guid: 957ec9b37ac311347a9f2233165a5e21,
-        type: 3}
-      propertyPath: song
-      value: 
-      objectReference: {fileID: 8300000, guid: ef21bcfea59a240418cfebe82f8d94b3, type: 3}
-    - target: {fileID: 912583785988771950, guid: 957ec9b37ac311347a9f2233165a5e21,
-        type: 3}
-      propertyPath: secondsUntilLoopStarts
-      value: 59.5
-      objectReference: {fileID: 0}
     - target: {fileID: 912583785988771951, guid: 957ec9b37ac311347a9f2233165a5e21,
         type: 3}
       propertyPath: m_Name
