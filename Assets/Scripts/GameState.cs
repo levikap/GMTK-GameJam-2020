@@ -51,12 +51,13 @@ public class GameState : MonoBehaviour
 
     public void LevelLost()
     {
-        isGameOver = true;
+        Destroy(player.GetComponent<Rigidbody2D>());
         SoundManagerScript.PlaySound("Death");
         gameOverCanvas.SetActive(true);
         pauseMenu.PauseGameForLoadingScreen();
         if (currLevel == 1)
         {
+            print("reload");
             //isGameOver = false;
             Invoke("LoadFirstLevel", 2);
             
@@ -73,10 +74,12 @@ public class GameState : MonoBehaviour
             Invoke("LoadThirdLevel", 2);
         }
         Invoke("ResetCollectables", 2);
+        isGameOver = true;
     }
 
     public void LevelBeat()
     {
+        Destroy(player.GetComponent<Rigidbody2D>());
         SoundManagerScript.PlaySound("Win");
         gameWonCanvas.SetActive(true);
         pauseMenu.PauseGameForLoadingScreen();

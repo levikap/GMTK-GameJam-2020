@@ -9,8 +9,13 @@ public class PauseMenuScript : MonoBehaviour
     public GameObject pauseMenu;
     public GameObject bg;
 
+    public AudioClip buttonClick;
+    public AudioSource audioSource;
+
     private void Start()
     {
+        buttonClick = Resources.Load<AudioClip>("Click");
+        audioSource = GetComponent<AudioSource>();
         isGamePaused = false;
     }
 
@@ -35,6 +40,7 @@ public class PauseMenuScript : MonoBehaviour
 
     public void PauseGame()
     {
+        audioSource.PlayOneShot(buttonClick);
         isGamePaused = true;
         Time.timeScale = 0f;
         pauseMenu.SetActive(true);
@@ -46,13 +52,11 @@ public class PauseMenuScript : MonoBehaviour
     public void PauseGameForLoadingScreen()
     {
         isGamePaused = true;
-        Time.timeScale = 0f;
-        Cursor.visible = true;
-        Cursor.lockState = CursorLockMode.None;
     }
 
     public void ResumeGame()
     {
+        audioSource.PlayOneShot(buttonClick);
         isGamePaused = false;
         Time.timeScale = 1f;
         pauseMenu.SetActive(false);
@@ -63,6 +67,7 @@ public class PauseMenuScript : MonoBehaviour
 
     public void LoadMainMenu()
     {
+        audioSource.PlayOneShot(buttonClick);
         SceneManager.LoadScene(0);
         Time.timeScale = 1f;
         isGamePaused = false;
@@ -70,6 +75,7 @@ public class PauseMenuScript : MonoBehaviour
 
     public void ExitGame()
     {
+        audioSource.PlayOneShot(buttonClick);
         Application.Quit();
     }
 }
