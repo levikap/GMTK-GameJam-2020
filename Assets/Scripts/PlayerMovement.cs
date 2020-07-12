@@ -53,6 +53,11 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        GameObject[] groundTile = GameObject.FindGameObjectsWithTag("GroundTile");
+        foreach(GameObject tile in groundTile)
+        {
+            isHittingWall = isHittingWall || tile.GetComponent<WallBehavior>().isHittingWall;
+        }
         if (!PauseMenuScript.isGamePaused)
         {
             if ((facingRight == true && lastMovement == -1) || (facingRight == false && lastMovement == 1))
@@ -187,20 +192,22 @@ public class PlayerMovement : MonoBehaviour
             {
                 Flip();
             }
-        } else if (facingRight && x < 0)
-        {
-            rb.velocity = new Vector2(moveBy, rb.velocity.y);
-            animator.SetFloat("Speed", Mathf.Abs(moveBy));
+            if (facingRight && x < 0)
+            {
+                rb.velocity = new Vector2(moveBy, rb.velocity.y);
+                animator.SetFloat("Speed", Mathf.Abs(moveBy));
 
-            lastMovement = x;
-            Flip();
-        } else if (!facingRight && x > 0)
-        {
-            rb.velocity = new Vector2(moveBy, rb.velocity.y);
-            animator.SetFloat("Speed", Mathf.Abs(moveBy));
+                lastMovement = x;
+                Flip();
+            }
+            else if (!facingRight && x > 0)
+            {
+                rb.velocity = new Vector2(moveBy, rb.velocity.y);
+                animator.SetFloat("Speed", Mathf.Abs(moveBy));
 
-            lastMovement = x;
-            Flip();
+                lastMovement = x;
+                Flip();
+            }
         }
     }
 
