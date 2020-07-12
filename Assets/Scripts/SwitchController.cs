@@ -54,6 +54,7 @@ public class SwitchController : MonoBehaviour
 
     public void Swap()
     {
+        SoundManagerScript.PlaySound("Transition1");
         glow.SetActive(false);
         isAwake = !isAwake;
 
