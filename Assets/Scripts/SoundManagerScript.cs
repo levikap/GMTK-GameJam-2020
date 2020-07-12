@@ -6,7 +6,7 @@ public class SoundManagerScript : MonoBehaviour
 {
 
     public static AudioClip playerDeathSound, playerWalkSound, playerJumpSound, collectStarSound, collectCookieSound, awakeSleepSound, levelWonSound;
-    static AudioSource audioSource;
+    public static AudioSource audioSource;
 
     // Start is called before the first frame update
     void Start()
@@ -19,9 +19,7 @@ public class SoundManagerScript : MonoBehaviour
         awakeSleepSound = Resources.Load<AudioClip>("Transition1");
         levelWonSound = Resources.Load<AudioClip>("Win");
 
-        print(playerDeathSound);
         audioSource = GetComponent<AudioSource>();
-        print(audioSource);
     }
 
     public static void PlaySound(string clip)
@@ -31,20 +29,16 @@ public class SoundManagerScript : MonoBehaviour
             case "Death":
                 audioSource.PlayOneShot(playerDeathSound);
                 break;
-            case "Walk":
-                //print("walk sound");
-                audioSource.PlayOneShot(playerWalkSound);
-                break;
             case "Jump":
                 audioSource.PlayOneShot(playerJumpSound);
                 break;
-            case "CollectStar":
+            case "Star":
                 audioSource.PlayOneShot(collectStarSound);
                 break;
-            case "Crunch":
+            case "Cookie":
                 audioSource.PlayOneShot(collectCookieSound);
                 break;
-            case "Transaction1":
+            case "Transition1":
                 audioSource.PlayOneShot(awakeSleepSound);
                 break;
             case "Win":

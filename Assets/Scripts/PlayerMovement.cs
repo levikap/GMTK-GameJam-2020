@@ -36,12 +36,15 @@ public class PlayerMovement : MonoBehaviour
 
     public static bool isHittingWall = false;
 
+    public AudioSource walkAudioSource;
+
     // Start is called before the first frame update
     void Start()
     {
         isHittingWall = false;
         spriteRenderer = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
+        walkAudioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -60,12 +63,23 @@ public class PlayerMovement : MonoBehaviour
             CheckIfGrounded();
             CheckIfDead();
             CheckIfFalling();
+            if (GameState.isGameOver || GameState.isLevelWon || !Input.anyKey)
+            {
+                walkAudioSource.Stop();
+            }
+            else if (isGrounded == true && rb.velocity.magnitude > 2f && walkAudioSource.isPlaying == false)
+            {
+                walkAudioSource.Play();
+            }
+            if (isGrounded == true && rb.velocity.magnitude < 0.5f && walkAudioSource.isPlaying == true || !isGrounded)
+            {
+                walkAudioSource.Stop();
+            }
         }
     }
 
     void Jump()
     {
-        SoundManagerScript.PlaySound("Jump");
         if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow)||  Input.GetKeyDown(KeyCode.W)) && (isGrounded || Time.time - lastTimeGrounded <= rememberGroundedFor))
         {
             animator.SetBool("Jumping", false);
@@ -73,6 +87,7 @@ public class PlayerMovement : MonoBehaviour
             animator.SetBool("isGrounded", false);
             animator.SetBool("pressedJump", true);
             isGrounded = false;
+            SoundManagerScript.PlaySound("Jump");
             Invoke("JumpEffect", 0.05f);
         }
     }
@@ -141,10 +156,6 @@ public class PlayerMovement : MonoBehaviour
 
             lastMovement = x;
             Flip();
-        }
-        if (isGrounded && x != 0f)
-        {
-            SoundManagerScript.PlaySound("Walk");
         }
     }
 
@@ -234,4 +245,8 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    public void StopMovingSound()
+    {
+        walkAudioSource.Stop();
+    }
 }

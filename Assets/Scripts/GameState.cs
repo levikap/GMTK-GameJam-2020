@@ -37,11 +37,13 @@ public class GameState : MonoBehaviour
         print(currLevel);
         if (isLevelWon)
         {
+            player.GetComponent<PlayerMovement>().StopMovingSound();
             isLevelWon = false;
             isGameOver = false;
             LevelBeat();
         } else if (isGameOver)
         {
+            player.GetComponent<PlayerMovement>().StopMovingSound();
             LevelLost();
             isGameOver = false;
         }
@@ -50,6 +52,7 @@ public class GameState : MonoBehaviour
     public void LevelLost()
     {
         isGameOver = true;
+        SoundManagerScript.PlaySound("Death");
         gameOverCanvas.SetActive(true);
         pauseMenu.PauseGameForLoadingScreen();
         if (currLevel == 1)
@@ -74,6 +77,7 @@ public class GameState : MonoBehaviour
 
     public void LevelBeat()
     {
+        SoundManagerScript.PlaySound("Win");
         gameWonCanvas.SetActive(true);
         pauseMenu.PauseGameForLoadingScreen();
         if (currLevel == 1)
@@ -118,7 +122,6 @@ public class GameState : MonoBehaviour
 
     public void LoadFirstLevel()
     {
-        isGameOver = false;
         SceneManager.LoadScene(firstLevel);
     }
 }

@@ -79,9 +79,11 @@ public class CollectableBehavior : MonoBehaviour
     {
         if (gameObject.tag == "CollectableStar")
         {
+            SoundManagerScript.PlaySound("Star");
             starsPickedUpCount++;
         } else
         {
+            SoundManagerScript.PlaySound("Cookie");
             cookiesPickedUpCount++;
         }
         if (starsPickedUpCount == maxStarsPickUpCount && cookiesPickedUpCount == maxCookiesPickUpCount)

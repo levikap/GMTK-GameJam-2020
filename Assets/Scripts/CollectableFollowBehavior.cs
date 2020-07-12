@@ -76,10 +76,12 @@ public class CollectableFollowBehavior : MonoBehaviour
     {
         if (gameObject.tag == "CollectableFollowStar")
         {
+            SoundManagerScript.PlaySound("Star");
             CollectableBehavior.starsPickedUpCount++;
         }
         else
         {
+            SoundManagerScript.PlaySound("Cookie");
             CollectableBehavior.cookiesPickedUpCount++;
         }
         if (CollectableBehavior.starsPickedUpCount == CollectableBehavior.maxStarsPickUpCount &&
