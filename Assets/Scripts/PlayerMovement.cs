@@ -104,8 +104,12 @@ public class PlayerMovement : MonoBehaviour
     void Move()
     {
         float x = Input.GetAxisRaw("Horizontal");
-
         float moveBy = x * speed;
+        if (SwitchController.glowState)
+        {
+            moveBy = x * speed + 500;
+        }
+        
         if (!isHittingWall)
         {
             rb.velocity = new Vector2(moveBy, rb.velocity.y);
@@ -205,8 +209,22 @@ public class PlayerMovement : MonoBehaviour
 
         if(collision.tag == "SceneSwitcher")
         {
-            Debug.Log("swap!");
             SwitchController.CalculateRandomTime(true);
+        }
+
+        if(collision.tag == "SceneSwitcherRight")
+        {
+            if(facingRight)
+            {
+                SwitchController.CalculateRandomTime(true);
+            }
+        }
+        if (collision.tag == "SceneSwitcherLeft")
+        {
+            if (!facingRight)
+            {
+                SwitchController.CalculateRandomTime(true);
+            }
         }
     }
 
