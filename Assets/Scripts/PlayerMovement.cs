@@ -192,22 +192,22 @@ public class PlayerMovement : MonoBehaviour
             {
                 Flip();
             }
-            if (facingRight && x < 0)
-            {
-                rb.velocity = new Vector2(moveBy, rb.velocity.y);
-                animator.SetFloat("Speed", Mathf.Abs(moveBy));
+        }
+        if (facingRight && x < 0)
+        {
+            rb.velocity = new Vector2(moveBy, rb.velocity.y);
+            animator.SetFloat("Speed", Mathf.Abs(moveBy));
 
-                lastMovement = x;
-                Flip();
-            }
-            else if (!facingRight && x > 0)
-            {
-                rb.velocity = new Vector2(moveBy, rb.velocity.y);
-                animator.SetFloat("Speed", Mathf.Abs(moveBy));
+            lastMovement = x;
+            Flip();
+        }
+        else if (!facingRight && x > 0)
+        {
+            rb.velocity = new Vector2(moveBy, rb.velocity.y);
+            animator.SetFloat("Speed", Mathf.Abs(moveBy));
 
-                lastMovement = x;
-                Flip();
-            }
+            lastMovement = x;
+            Flip();
         }
     }
 

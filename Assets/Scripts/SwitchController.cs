@@ -46,7 +46,7 @@ public class SwitchController : MonoBehaviour
         if (time >= randomTimeInterval)
         {
             glow.SetActive(true);
-            Invoke("Swap", 1);
+            Invoke("Swap", 2);
             time = 0;
             randomTimeInterval = CalculateRandomTime(false);
         }
