@@ -2950,6 +2950,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 912583785988771950, guid: 957ec9b37ac311347a9f2233165a5e21,
+        type: 3}
+      propertyPath: volume
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 912583785988771951, guid: 957ec9b37ac311347a9f2233165a5e21,
         type: 3}
       propertyPath: m_Name
@@ -3451,6 +3456,12 @@ Grid:
   m_CellGap: {x: 0, y: 0, z: 0}
   m_CellLayout: 0
   m_CellSwizzle: 0
+--- !u!1 &1233302904 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8236014660643907123, guid: 566390278e24c4944a38eaa342d7b5d0,
+    type: 3}
+  m_PrefabInstance: {fileID: 1873995925}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1396679363
 GameObject:
   m_ObjectHideFlags: 0
@@ -5979,6 +5990,18 @@ Grid:
   m_CellGap: {x: 0, y: 0, z: 0}
   m_CellLayout: 0
   m_CellSwizzle: 0
+--- !u!95 &1605641504 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1150356449, guid: 566390278e24c4944a38eaa342d7b5d0,
+    type: 3}
+  m_PrefabInstance: {fileID: 1873995925}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1647345946 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2592114310159884617, guid: 566390278e24c4944a38eaa342d7b5d0,
+    type: 3}
+  m_PrefabInstance: {fileID: 1873995925}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1736976781
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6169,6 +6192,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2592114309768829334, guid: 566390278e24c4944a38eaa342d7b5d0,
+        type: 3}
+      propertyPath: isGroundedChecker
+      value: 
+      objectReference: {fileID: 1647345946}
+    - target: {fileID: 2592114309768829334, guid: 566390278e24c4944a38eaa342d7b5d0,
+        type: 3}
+      propertyPath: glowObject
+      value: 
+      objectReference: {fileID: 1233302904}
+    - target: {fileID: 2592114309768829334, guid: 566390278e24c4944a38eaa342d7b5d0,
+        type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 1605641504}
     - target: {fileID: 2592114309768829337, guid: 566390278e24c4944a38eaa342d7b5d0,
         type: 3}
       propertyPath: m_LocalPosition.x
