@@ -13,9 +13,9 @@ public class GameState : MonoBehaviour
     public GameObject gameWonCanvas;
 
     private string firstLevel = "Level1";
-    private string secondtLevel = "Level2";
+    private string secondLevel = "Level2";
     private string thirdLevel = "Level3";
-    private string fourthtLevel = "Level4";
+    private string fourthLevel = "Level4";
 
     public static int currLevel = 1;
 
