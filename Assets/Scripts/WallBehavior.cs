@@ -6,16 +6,18 @@ public class WallBehavior : MonoBehaviour
 {
     private GameObject player;
     public bool isHittingWall = false;
+    BoxCollider2D deathCollider;
 
     private void Start()
     {
         isHittingWall = false;
         player = GameObject.FindGameObjectWithTag("Player");
+        deathCollider = GameObject.FindGameObjectWithTag("DeathSpawnCheck").GetComponent<BoxCollider2D>();
     }
 
     private void Update()
     {
-        GameObject[] walls = GameObject.FindGameObjectsWithTag("Ground");
+        GameObject[] walls = GameObject.FindGameObjectsWithTag("GroundTile");
         foreach(GameObject wall in walls)
         {
             bool isHitting = wall.gameObject.GetComponent<WallBehavior>().isHittingWall;
@@ -44,18 +46,27 @@ public class WallBehavior : MonoBehaviour
         {
             GameState.isGameOver = true;
         }
+        if (collision.gameObject.tag == "WallChecker")
+        {
+            //deathCollider.enabled = false;
+            // player.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+                        isHittingWall = true;
+            player.GetComponent<Rigidbody2D>().AddForce(new Vector3(0f, 1f, 0f));
+        }
     }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "WallChecker")
         {
-           // player.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
-            player.GetComponent<Rigidbody2D>().AddForce(new Vector3(0f, 1f, 0f));
+            //deathCollider.enabled = false;
+            // player.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
             isHittingWall = true;
+            player.GetComponent<Rigidbody2D>().AddForce(new Vector3(0f, 1f, 0f));
         } else
         {
             isHittingWall = false;
+            //deathCollider.enabled = true;
         }
     }
 
@@ -64,6 +75,7 @@ public class WallBehavior : MonoBehaviour
         if (collision.gameObject.tag == "WallChecker")
         {
             isHittingWall = false;
-            PlayerMovement.isHittingWall = false;        }
+            PlayerMovement.isHittingWall = false;
         }
+    }
 }
