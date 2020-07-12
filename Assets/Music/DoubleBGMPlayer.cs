@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DoubleBGMPlayer : ABGMPlayer, IDoubleBGMPlayer
 {
@@ -11,6 +12,25 @@ public class DoubleBGMPlayer : ABGMPlayer, IDoubleBGMPlayer
 
     private ALoopedBGM loopA;
     private ALoopedBGM loopB;
+
+    public static DoubleBGMPlayer singular;
+
+    void Awake()
+    {
+        if (singular == null)
+        {
+            singular = this;
+            DontDestroyOnLoad(this.gameObject);
+        } else
+        {
+            Destroy(this.gameObject);
+        }
+
+        if (SceneManager.GetActiveScene().name == "MainMenu")
+        {
+            Destroy(this.gameObject);
+        }
+    }
 
     void Start()
     {
