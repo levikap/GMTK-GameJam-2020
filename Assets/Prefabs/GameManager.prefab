@@ -825,8 +825,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeToWait: 2
+  lowerSwitchIntervalBound: 0
+  higherSwitchIntervalBound: 10
   time: 0
   waitTime: 1
+  currentlySwapping: 0
 --- !u!114 &5399170007623207179
 MonoBehaviour:
   m_ObjectHideFlags: 0
