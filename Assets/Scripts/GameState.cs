@@ -12,6 +12,7 @@ public class GameState : MonoBehaviour
     public GameObject gameOverCanvas;
     public GameObject gameWonCanvas;
 
+    private string fourthLevel = "LevelFour";
     private string thirdLevel = "LevelThree";
     private string secondLevel = "LevelTwo";
     private string firstLevel = "Level-2";
@@ -32,6 +33,7 @@ public class GameState : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         pauseMenu = GameObject.FindGameObjectWithTag("PauseMenu").GetComponent<PauseMenuScript>();
         currLevelName = SceneManager.GetActiveScene().name;
+
     }
 
     // Update is called once per frame
@@ -88,22 +90,7 @@ public class GameState : MonoBehaviour
         SoundManagerScript.PlaySound("Win");
         gameWonCanvas.SetActive(true);
         pauseMenu.PauseGameForLoadingScreen();
-        if (currLevel == 1)
-        {
-
-            ++currLevel;
-            Invoke("LoadSecondLevel", 2);
-        }
-        else if (currLevel == 2)
-        {
-            ++currLevel;
-            Invoke("LoadThirdLevel", 2);
-
-        }
-        else if (currLevel == 3)
-        {
-            //gameText.text = "YOU WIN!";
-        }
+        Invoke("LoadNextLevel", 2);
         Invoke("ResetCollectables", 2);
     }
 
@@ -115,19 +102,25 @@ public class GameState : MonoBehaviour
         CollectableBehavior.cookiesPickedUpCount = 0;
     }
 
-    public void LoadThirdLevel()
+    public void LoadNextLevel()
     {
-        SceneManager.LoadScene(thirdLevel);
-    }
-
-    public void LoadSecondLevel()
-    {
-        SceneManager.LoadScene(secondLevel);
-    }
-
-    public void LoadFirstLevel()
-    {
-        SceneManager.LoadScene(firstLevel);
+        switch (currLevel)
+        {
+            case 1:
+                ++currLevel;
+                SceneManager.LoadScene(secondLevel);
+                break;
+            case 2:
+                ++currLevel;
+                SceneManager.LoadScene(thirdLevel);
+                break;
+            case 3:
+                ++currLevel;
+                SceneManager.LoadScene(fourthLevel);
+                break;
+            default:
+                break;
+        }
     }
 
     private void RestartLevel()
