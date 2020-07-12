@@ -19,8 +19,6 @@ public class SwitchController : MonoBehaviour
     public static float randomTimeInterval = 10f;
     public static bool glowState = false;
 
-    public DoubleBGMPlayer musicPlayer;
-
     // Start is called before the first frame update
     void Start()
     {
