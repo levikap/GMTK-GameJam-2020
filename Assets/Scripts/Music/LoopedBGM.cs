@@ -10,13 +10,19 @@ public class LoopedBGM : ALoopedBGM
     private float baseVolume;
     private float maxVolume;
 
+    private float currentVolumeInTransition;
+    private float nextVolumeInTransition;
+
     private bool transitioning;
+
+    private bool fadingOut;
+    private bool fadingIn;
 
     private AudioSource currentAudioSource;
     private AudioSource nextAudioSource;
     private float loopSeconds;
 
-    private float fadeSpeedPerSecond = 0.333f;
+    private float fadeSpeedPerSecond = 0.5f;
 
     private AudioSource instantiateAudioSource()
     {
@@ -45,6 +51,17 @@ public class LoopedBGM : ALoopedBGM
 
         this.capVolume(this.currentAudioSource);
         this.capVolume(this.nextAudioSource);
+
+        if (!this.transitioning)
+        {
+            this.currentAudioSource.volume = this.maxVolume;
+        } else
+        {
+            if (this.maxVolume != this.baseVolume)
+            {
+                this.nextAudioSource.volume = this.maxVolume;
+            }
+        }
     }
 
     private void capVolume(AudioSource source)
@@ -85,30 +102,36 @@ public class LoopedBGM : ALoopedBGM
 
     public override void fadeIn()
     {
+        this.fadingOut = false;
+        this.fadingIn = true;
         StartCoroutine(this._fadeIn());
     }
 
     private IEnumerator _fadeIn()
     {
-        while(this.maxVolume < this.baseVolume)
+        while(this.maxVolume < this.baseVolume && this.fadingIn)
         {
             this.maxVolume = Mathf.Clamp(this.maxVolume + (this.fadeSpeedPerSecond * Time.deltaTime), 0, this.baseVolume);
             yield return null;
         }
+        this.fadingIn = false;
     }
 
     public override void fadeOut()
     {
+        this.fadingIn = false;
+        this.fadingOut = true;
         StartCoroutine(this._fadeOut());
     }
 
     private IEnumerator _fadeOut()
     {
-        while (this.maxVolume < this.baseVolume)
+        while (this.maxVolume > 0 && this.fadingOut)
         {
             this.maxVolume = Mathf.Clamp(this.maxVolume - (this.fadeSpeedPerSecond * Time.deltaTime), 0, this.baseVolume);
             yield return null;
         }
+        this.fadingOut = false;
     }
 
     public override void play()
@@ -142,5 +165,10 @@ public class LoopedBGM : ALoopedBGM
     {
         this.currentAudioSource = this.instantiateAudioSource();
         this.nextAudioSource = this.instantiateAudioSource();
+    }
+
+    public override void mute()
+    {
+        this.maxVolume = 0;
     }
 }
