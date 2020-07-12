@@ -22,6 +22,8 @@ TagManager:
   - SceneSwitcher
   - GameOverCanvas
   - PauseMenu
+  - SceneSwitcherRight
+  - SceneSwitcherLeft
   layers:
   - Default
   - TransparentFX
