@@ -13,7 +13,7 @@ public class SwitchController : MonoBehaviour
     public int timeToWait = 2;
     public static bool startGlow;
     
-
+    
     public float time = 0.0f;
     public float waitTime = 1.0f;
     public static float randomTimeInterval = 10f;
@@ -74,7 +74,7 @@ public class SwitchController : MonoBehaviour
     {
         if(doItNow)
         {
-            randomTimeInterval = 0.0f;
+            randomTimeInterval = 1.0f;
             return 0.0f;
         } else
         {
