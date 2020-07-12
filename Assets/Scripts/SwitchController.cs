@@ -14,7 +14,8 @@ public class SwitchController : MonoBehaviour
     public static bool startGlow;
     public float lowerSwitchIntervalBound;
     public float higherSwitchIntervalBound;
-    private DoubleBGMPlayer musicPlayer;
+    [HideInInspector]
+    public DoubleBGMPlayer musicPlayer;
 
     public float time = 0.0f;
     public float waitTime = 1.0f;
