@@ -456,6 +456,16 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Glow
       objectReference: {fileID: 0}
+    - target: {fileID: 1285118734034872058, guid: 1ffe261b3ccf744b69026540186be048,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: -1211030031
+      objectReference: {fileID: 0}
+    - target: {fileID: 1285118734034872058, guid: 1ffe261b3ccf744b69026540186be048,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1285118734034872061, guid: 1ffe261b3ccf744b69026540186be048,
         type: 3}
       propertyPath: m_LocalPosition.x
