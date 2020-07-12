@@ -14,7 +14,7 @@ public class SwitchController : MonoBehaviour
     public static bool startGlow;
     public float lowerSwitchIntervalBound;
     public float higherSwitchIntervalBound;
-
+    public DoubleBGMPlayer musicPlayer;
 
     public float time = 0.0f;
     public float waitTime = 1.0f;
@@ -57,7 +57,7 @@ public class SwitchController : MonoBehaviour
     public void Swap()
     {
         SoundManagerScript.PlaySound("Transition1");
-        //musicPlayer.swapSongs();
+        musicPlayer.swapSongs();
         glow.SetActive(false);
         isAwake = !isAwake;
 
