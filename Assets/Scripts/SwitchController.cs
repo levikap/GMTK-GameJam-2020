@@ -14,7 +14,7 @@ public class SwitchController : MonoBehaviour
     public static bool startGlow;
     public float lowerSwitchIntervalBound;
     public float higherSwitchIntervalBound;
-    public DoubleBGMPlayer musicPlayer;
+    private DoubleBGMPlayer musicPlayer;
 
     public float time = 0.0f;
     public float waitTime = 1.0f;
@@ -32,6 +32,7 @@ public class SwitchController : MonoBehaviour
         isAwake = true;
         dreamObjects.SetActive(false);
         awakeObjects.SetActive(true);
+        musicPlayer = DoubleBGMPlayer.singular;
     }
 
     // Update is called once per frame
