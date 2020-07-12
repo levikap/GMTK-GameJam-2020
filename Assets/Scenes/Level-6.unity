@@ -356,7 +356,7 @@ GameObject:
   - component: {fileID: 907510891}
   m_Layer: 0
   m_Name: awakeGrid
-  m_TagString: Ground
+  m_TagString: GroundTile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1112,7 +1112,7 @@ GameObject:
   - component: {fileID: 1815298393}
   m_Layer: 0
   m_Name: dreamGrid
-  m_TagString: Ground
+  m_TagString: GroundTile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
