@@ -5,7 +5,8 @@ using UnityEngine;
 public class SoundManagerScript : MonoBehaviour
 {
 
-    public static AudioClip playerDeathSound, playerWalkSound, playerJumpSound, collectStarSound, collectCookieSound, awakeSleepSound, levelWonSound;
+    public static AudioClip playerDeathSound, playerWalkSound, playerJumpSound, collectStarSound, collectCookieSound, awakeSleepSound, levelWonSound,
+        transitionToSleepSound, transitionToAwakeSound;
     public static AudioSource audioSource;
 
     // Start is called before the first frame update
@@ -18,6 +19,8 @@ public class SoundManagerScript : MonoBehaviour
         collectCookieSound = Resources.Load<AudioClip>("Cookie");
         awakeSleepSound = Resources.Load<AudioClip>("Transition1");
         levelWonSound = Resources.Load<AudioClip>("Win");
+        transitionToSleepSound = Resources.Load<AudioClip>("TransitionToSleep");
+        transitionToAwakeSound = Resources.Load<AudioClip>("TransitionToAwake");
 
         audioSource = GetComponent<AudioSource>();
     }
@@ -43,6 +46,12 @@ public class SoundManagerScript : MonoBehaviour
                 break;
             case "Win":
                 audioSource.PlayOneShot(levelWonSound);
+                break;
+            case "TransitionToSleep":
+                audioSource.PlayOneShot(transitionToSleepSound);
+                break;
+            case "TransitionToAwake":
+                audioSource.PlayOneShot(transitionToAwakeSound);
                 break;
             default:
                 break;
