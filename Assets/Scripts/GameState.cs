@@ -119,6 +119,7 @@ public class GameState : MonoBehaviour
 
     public void LoadNextLevel()
     {
+        orientMusic();
         switch (currLevel)
         {
             case 1:
@@ -149,8 +150,17 @@ public class GameState : MonoBehaviour
         }
     }
 
+    private void orientMusic()
+    {
+        if (!SwitchController.isAwake)
+        {
+            GameObject.FindObjectOfType<SwitchController>().musicPlayer.swapSongs();
+        }
+    }
+
     private void RestartLevel()
     {
+        orientMusic();
         SceneManager.LoadScene(currLevelName);
     }
 }
