@@ -13,4 +13,6 @@ public abstract class ALoopedBGM : MonoBehaviour
     public abstract void fadeOut();
 
     public abstract void setSong(AudioClip song, float volume, float loopSeconds);
+
+    public abstract void mute();
 }
