@@ -30,6 +30,7 @@ public class EnemyFollowBehavior : MonoBehaviour
 
     void Update()
     {
+        distanceToPlayer = Vector2.Distance(player.transform.position, transform.position);
         AnimateIfPlayerClose();
 
         vegetables = GameObject.FindGameObjectsWithTag("EnemyVegetableFollow");
@@ -43,7 +44,10 @@ public class EnemyFollowBehavior : MonoBehaviour
                 vegetable.GetComponent<Renderer>().enabled = true;
                 vegetable.GetComponent<CapsuleCollider2D>().enabled = true;
                 float step = speed * Time.deltaTime;
-                vegetable.transform.position = Vector2.MoveTowards(vegetable.transform.position, player.transform.position, step);
+                if (distanceToPlayer < 6f)
+                {
+                    vegetable.transform.position = Vector2.MoveTowards(vegetable.transform.position, player.transform.position, step);
+                }
             }
             foreach (GameObject monster in monsters)
             {
@@ -56,9 +60,6 @@ public class EnemyFollowBehavior : MonoBehaviour
                 vegetable.GetComponent<CapsuleCollider2D>().enabled = true;
                 LimitedFollow limitedFollow = vegetable.GetComponent<LimitedFollow>();
                 float step = speed * Time.deltaTime;
-                //print(hitPos1);
-                print(limitedFollow.limitedPosition2.position);
-                print(limitedFollow.limitedPosition1.position);
                 if (hitPos1)
                 {
                     vegetable.transform.position = Vector2.MoveTowards(vegetable.transform.position, limitedFollow.targetPos.position, step);
@@ -96,7 +97,10 @@ public class EnemyFollowBehavior : MonoBehaviour
                 monster.GetComponent<Renderer>().enabled = true;
                 monster.GetComponent<CircleCollider2D>().enabled = true;
                 float step = speed * Time.deltaTime;
-                monster.transform.position = Vector2.MoveTowards(monster.transform.position, player.transform.position, step);
+                if (distanceToPlayer < 6f)
+                {
+                    monster.transform.position = Vector2.MoveTowards(monster.transform.position, player.transform.position, step);
+                }
             }
             foreach (GameObject vegetable in vegetablesLimited)
             {
@@ -144,7 +148,6 @@ public class EnemyFollowBehavior : MonoBehaviour
 
     private void AnimateIfPlayerClose()
     {
-        distanceToPlayer = Vector2.Distance(player.transform.position, transform.position);
         if (distanceToPlayer < 2.5f)
         {
             animator.SetBool("PlayerClose", true);
