@@ -2,14 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
     public AudioClip buttonClick;
     public AudioSource audioSource;
+    public bool creditsOpened = false;
 
     void Start()
     {
+        creditsOpened = false;
+        GameObject.FindGameObjectWithTag("CreditsInfo").GetComponent<Image>().enabled = false;
+        print(GameObject.FindGameObjectWithTag("CreditsInfo"));
         buttonClick = Resources.Load<AudioClip>("Click");
         audioSource = GetComponent<AudioSource>();
     }
@@ -29,7 +34,15 @@ public class MainMenu : MonoBehaviour
 
     public void CreditsGame()
     {
+        if (creditsOpened)
+        {
+            GameObject.FindGameObjectWithTag("CreditsInfo").GetComponent<Image>().enabled = false;
+        } else
+        {
+            GameObject.FindGameObjectWithTag("CreditsInfo").GetComponent<Image>().enabled = true;
+        }
         audioSource.PlayOneShot(buttonClick);
+        creditsOpened = !creditsOpened;
     }
 
     private void StartGameClicked()
@@ -37,8 +50,4 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
-    private void QuitGame()
-    {
-        Application.Quit();
-    }
 }
