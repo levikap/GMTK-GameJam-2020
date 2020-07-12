@@ -25,11 +25,6 @@ public class DoubleBGMPlayer : ABGMPlayer, IDoubleBGMPlayer
         {
             Destroy(this.gameObject);
         }
-
-        if (SceneManager.GetActiveScene().name == "MainMenuUI")
-        {
-            Destroy(this.gameObject);
-        }
     }
 
     void Start()
@@ -42,6 +37,14 @@ public class DoubleBGMPlayer : ABGMPlayer, IDoubleBGMPlayer
         this.loopA.play();
         this.loopB.play();
         this.loopB.mute();
+    }
+
+    void Update()
+    {
+        if (SceneManager.GetActiveScene().name == "MainMenuUI")
+        {
+            Destroy(this.gameObject);
+        }
     }
 
     public void swapSongs()
