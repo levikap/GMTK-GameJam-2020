@@ -19,7 +19,9 @@ public class SoundManagerScript : MonoBehaviour
         awakeSleepSound = Resources.Load<AudioClip>("Transition1");
         levelWonSound = Resources.Load<AudioClip>("Win");
 
+        print(playerDeathSound);
         audioSource = GetComponent<AudioSource>();
+        print(audioSource);
     }
 
     public static void PlaySound(string clip)
@@ -30,7 +32,7 @@ public class SoundManagerScript : MonoBehaviour
                 audioSource.PlayOneShot(playerDeathSound);
                 break;
             case "Walk":
-                print("walk sound");
+                //print("walk sound");
                 audioSource.PlayOneShot(playerWalkSound);
                 break;
             case "Jump":
