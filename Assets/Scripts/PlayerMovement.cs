@@ -123,9 +123,9 @@ public class PlayerMovement : MonoBehaviour
             }
         } else if (Input.GetKeyUp(KeyCode.Space) || Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.UpArrow))
         {
-            Debug.Log("key released");
+            //Debug.Log("key released");
             jumpKeyHeld = false;
-            Debug.Log("JKH after release: " + jumpKeyHeld);
+           // Debug.Log("JKH after release: " + jumpKeyHeld);
         }
 
         if (isJumping)

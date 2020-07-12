@@ -122,27 +122,21 @@ public class GameState : MonoBehaviour
         switch (currLevel)
         {
             case 1:
-                ++currLevel;
                 SceneManager.LoadScene(secondLevel);
                 break;
             case 2:
-                ++currLevel;
                 SceneManager.LoadScene(thirdLevel);
                 break;
             case 3:
-                ++currLevel;
                 SceneManager.LoadScene(fourthLevel);
                 break;
             case 4:
-                ++currLevel;
                 SceneManager.LoadScene(fifthLevel);
                 break;
             case 5:
-                ++currLevel;
                 SceneManager.LoadScene(sixthLevel);
                 break;
             case 6:
-                ++currLevel;
                 SceneManager.LoadScene(seventhLevel);
                 break;
             case 7:

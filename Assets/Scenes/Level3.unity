@@ -304,7 +304,7 @@ PrefabInstance:
     - target: {fileID: 2949841853677413760, guid: 71b06b3c7fd334ac3981c76a30bb8b61,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2949841853677413760, guid: 71b06b3c7fd334ac3981c76a30bb8b61,
         type: 3}
@@ -325,6 +325,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: EnemyLimitedFollowVeggie (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2949841853677413767, guid: 71b06b3c7fd334ac3981c76a30bb8b61,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3511852844460721595, guid: 71b06b3c7fd334ac3981c76a30bb8b61,
         type: 3}
@@ -579,6 +584,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: StarAndVegetable (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2949841853677413767, guid: c3875e0f0d7004aad883667f8df1a4c3,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c3875e0f0d7004aad883667f8df1a4c3, type: 3}
@@ -3772,6 +3782,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: StarAndVegetable (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 2949841853677413767, guid: c3875e0f0d7004aad883667f8df1a4c3,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c3875e0f0d7004aad883667f8df1a4c3, type: 3}
 --- !u!1001 &546763009
@@ -3819,7 +3834,7 @@ PrefabInstance:
     - target: {fileID: 2949841853677413760, guid: 71b06b3c7fd334ac3981c76a30bb8b61,
         type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2949841853677413760, guid: 71b06b3c7fd334ac3981c76a30bb8b61,
         type: 3}
@@ -3840,6 +3855,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: EnemyLimitedFollowVeggie
+      objectReference: {fileID: 0}
+    - target: {fileID: 2949841853677413767, guid: 71b06b3c7fd334ac3981c76a30bb8b61,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3511852844460721595, guid: 71b06b3c7fd334ac3981c76a30bb8b61,
         type: 3}
@@ -3931,6 +3951,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CookieAndMonster (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 4844225740214571426, guid: fbb5606ac41474e39a4336e05c1045f4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4844225740214571453, guid: fbb5606ac41474e39a4336e05c1045f4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4009,6 +4034,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: CookieAndMonster (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4844225740214571426, guid: fbb5606ac41474e39a4336e05c1045f4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4844225740214571453, guid: fbb5606ac41474e39a4336e05c1045f4,
         type: 3}
@@ -4152,7 +4182,7 @@ PrefabInstance:
     - target: {fileID: 2592114309768829337, guid: 566390278e24c4944a38eaa342d7b5d0,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2592114309768829337, guid: 566390278e24c4944a38eaa342d7b5d0,
         type: 3}
@@ -4221,7 +4251,7 @@ PrefabInstance:
     - target: {fileID: 2949841853677413760, guid: 71b06b3c7fd334ac3981c76a30bb8b61,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2949841853677413760, guid: 71b06b3c7fd334ac3981c76a30bb8b61,
         type: 3}
@@ -4242,6 +4272,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: EnemyLimitedFollowVeggie (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2949841853677413767, guid: 71b06b3c7fd334ac3981c76a30bb8b61,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3511852844460721595, guid: 71b06b3c7fd334ac3981c76a30bb8b61,
         type: 3}
@@ -4397,6 +4432,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: CookieAndMonster (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4844225740214571426, guid: fbb5606ac41474e39a4336e05c1045f4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4844225740214571453, guid: fbb5606ac41474e39a4336e05c1045f4,
         type: 3}
@@ -7992,6 +8032,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CookieAndMonster
       objectReference: {fileID: 0}
+    - target: {fileID: 4844225740214571426, guid: fbb5606ac41474e39a4336e05c1045f4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4844225740214571453, guid: fbb5606ac41474e39a4336e05c1045f4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8070,6 +8115,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: CookieAndMonster (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4844225740214571426, guid: fbb5606ac41474e39a4336e05c1045f4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4844225740214571453, guid: fbb5606ac41474e39a4336e05c1045f4,
         type: 3}
