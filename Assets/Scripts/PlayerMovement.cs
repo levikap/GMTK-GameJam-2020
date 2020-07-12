@@ -113,7 +113,7 @@ public class PlayerMovement : MonoBehaviour
                 animator.SetBool("pressedJump", true);
                 isGrounded = false;
                 SoundManagerScript.PlaySound("Jump");
-                Invoke("JumpEffect", 0.5f);
+                Invoke("JumpEffect", 0.3f);
                 rb.velocity = new Vector2(rb.velocity.x, jumpForce);
             }
         } else if (Input.GetKeyUp(KeyCode.Space) || Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.UpArrow))
