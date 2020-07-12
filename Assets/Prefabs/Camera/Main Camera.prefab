@@ -100,7 +100,12 @@ MonoBehaviour:
   interpVelocity: 1
   minDistance: 3
   followDistance: 2
-  offset: {x: 0, y: 0, z: 0}
+  smoothSpeed: 6
+  offset: {x: 4, y: 2, z: -10}
+  leftBound: 3
+  rightBound: 24.5
+  upBound: 12
+  downBound: 1
 --- !u!114 &-8606945209683893053
 MonoBehaviour:
   m_ObjectHideFlags: 0
