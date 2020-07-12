@@ -44,7 +44,7 @@ public class EnemyFollowBehavior : MonoBehaviour
                 vegetable.GetComponent<Renderer>().enabled = true;
                 vegetable.GetComponent<CapsuleCollider2D>().enabled = true;
                 float step = speed * Time.deltaTime;
-                if (distanceToPlayer < 6f)
+                if (distanceToPlayer < 8.5f)
                 {
                     vegetable.transform.position = Vector2.MoveTowards(vegetable.transform.position, player.transform.position, step);
                 }
@@ -148,7 +148,7 @@ public class EnemyFollowBehavior : MonoBehaviour
 
     private void AnimateIfPlayerClose()
     {
-        if (distanceToPlayer < 2.5f)
+        if (distanceToPlayer < 5f)
         {
             animator.SetBool("PlayerClose", true);
 
