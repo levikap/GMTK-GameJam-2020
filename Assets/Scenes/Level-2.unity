@@ -2661,6 +2661,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyLimitedFollowVeggie
       objectReference: {fileID: 0}
+    - target: {fileID: 2949841853677413767, guid: 71b06b3c7fd334ac3981c76a30bb8b61,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3361422488780268464, guid: 71b06b3c7fd334ac3981c76a30bb8b61,
         type: 3}
       propertyPath: limitedPosition2
