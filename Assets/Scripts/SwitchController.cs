@@ -46,6 +46,7 @@ public class SwitchController : MonoBehaviour
         if (time >= randomTimeInterval)
         {
             glow.SetActive(true);
+            SoundManagerScript.PlaySound("TransitionWarning");
             Invoke("Swap", 2);
             time = 0;
             randomTimeInterval = CalculateRandomTime(false);
