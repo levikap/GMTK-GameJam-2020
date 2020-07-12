@@ -17,7 +17,7 @@ public class FollowCamera : MonoBehaviour
      public float upBound = 2.7f;
      public float downBound = -2.7f;
 
-    Vector3 targetPos;
+    Vector2 targetPos;
 
     void Start()
     {
@@ -63,8 +63,8 @@ public class FollowCamera : MonoBehaviour
 
             Vector3 desiredPosition = target.transform.position + offset;
             Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed * Time.deltaTime);
+            smoothedPosition = smoothedPosition + new Vector3(0f, 0f, -10f);
             transform.position = smoothedPosition;
-
         }
     }
 }
